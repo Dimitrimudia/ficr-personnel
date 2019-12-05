@@ -11,7 +11,7 @@
         
     </div>
     <div class="col-md-1">
-         <a id="cancel" class="btn btn-app no-border pull_left" href="#"><span class="fa fa-fw fa-times text-gray f20"></span></a>
+            <a id="cancel" class="btn btn-app no-border pull_left" href="#"><span class="fa fa-fw fa-times text-gray f20"></span></a>
     </div>
 </div>
 <script type="text/javascript">

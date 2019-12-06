@@ -66,6 +66,7 @@
 $("#Myform").submit(function(event){
     event.preventDefault();
     var url = '<?php echo site_url('connexion'); ?>';
+    var admin = '<?php echo site_url('user');?>';
     var data = $(this).serialize();
     $("#submit").text('connexion...');
     $("#submit").prop('disabled', 'true'); 
@@ -76,10 +77,20 @@ $("#Myform").submit(function(event){
             dataType: 'html',
             encode: true,
             success: function (result){
-                $('#loader').html('');
-                $('#loader').html(result);
-                $("#submit").text('connexion');
-                $("#submit").prop('disabled', '');
+                
+                if(result == 401)
+                {
+                        var chtml = '<div class="alert alert-danger"> D&eacute;sol&eacute; !, vous n\'avez pas de compte, veuillez contacter votre administrateur...<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button></div>';
+                        $('#loader').html('');
+                        $('#loader').html(chtml);
+                        $("#submit").text('connexion');
+                        $("#submit").prop('disabled', '');
+                }
+                else if(result == 400)
+                {
+                    window.location.replace(admin);
+                }
+               
             },
             error: function (error) {
                 alert('ERROR!' + error);

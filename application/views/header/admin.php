@@ -38,7 +38,10 @@
                 </ul>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
-                        <a href="login.html">
+                        <i class="fa fa-user-circle-o"></i> <span> <?php echo $this->session->userdata('Name_12'); ' '?></span>
+                    </li>
+                    <li>
+                        <a onclick="deconnexion()?>">
                             <i class="fa fa-sign-out"></i> Deconnexion
                         </a>
                     </li>

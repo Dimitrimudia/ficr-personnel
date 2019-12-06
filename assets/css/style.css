@@ -8659,3 +8659,8 @@ body.md-skin {
 {
     background-color: #ffffff;
 }
+.alert-danger {
+    color: #f5f6fa;
+    background-color: #e84118;
+    border-color: #e84118;
+}

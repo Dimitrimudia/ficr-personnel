@@ -119,7 +119,7 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>Basic Data Tables example with responsive plugin</h5>
+                    <h5>Listes des agents</h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
@@ -206,12 +206,10 @@
                     {extend: 'csv'},
                     {extend: 'excel', title: 'Liste des agents'},
                     {extend: 'pdf', title: 'Liste des agents'},
-
                     {extend: 'print',
                      customize: function (win){
                             $(win.document.body).addClass('white-bg');
                             $(win.document.body).css('font-size', '10px');
-
                             $(win.document.body).find('table')
                                     .addClass('compact')
                                     .css('font-size', 'inherit');

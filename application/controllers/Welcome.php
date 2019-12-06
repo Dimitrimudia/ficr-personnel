@@ -30,26 +30,29 @@ class Welcome extends MY_Controller {
                 {
                         if($user->Statut_2 == 0)
                         {
-                               echo '<div class="alert alert-danger"> D&eacute;sol&eacute; !, vous n\'avez pas de compte, veuillez contatcer votre administrateur..<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button></div>';
+                               echo '<div class="alert alert-danger"> D&eacute;sol&eacute; !, vous n\'avez pas de compte, veuillez contacter votre administrateur..<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button></div>';
                         }
                         else
                         {
                                 $data = array(
                                     'user_id' => $user->Id_0,
-                                    'Name_12'=>$user->Name_12,
+                                    'Name_12'=>$user->Name_12.''.$user->Postnom_8.''.$user->Prenom_9,
                                     'Group_5'=>$user->Group_5,
                                     'Role_6'=>$user->Role_6,
                                     'Position_7'=>$user->Position_7,
                                     'Identifier_11'=>$user->Identifier_11,
                                 );
                                 $this->session->set_userdata($data);
-                                $url = site_url('user');
-                                return redirect($url, 'refresh');
+                                
+                                echo 400;
+//                                $url = base_url('index.php/admin');
+//                                redirect($url, 'location');
+                                //header('Location : http://localhost/personnel/index.php/admin');
                         }
                }
                else
                {
-                        echo '<div class="alert alert-danger"> D&eacute;sol&eacute; !, vous n\'avez pas de compte, veuillez contatcer votre administrateur...<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button></div>';
+                        echo 401;
                }
         }
 }

@@ -8653,3 +8653,15 @@ body.md-skin {
     font-weight: 20;
     background-color: #a83238;
 }
+
+.page-header
+{
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.bg-white
+{
+    background-color: #ffffff;
+}

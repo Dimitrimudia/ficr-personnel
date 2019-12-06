@@ -4,22 +4,22 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-1"></div>
-                <div class="col-md-10 box-logo pull-right" style="text-align: center !important;">
-                    <div class="col-md-8  message no-padding no-margin">
+                <div class="col-md-10 box-logo" style="text-align: center !important;">
+                    <div class="col-md-6  message no-padding no-margin">
                         <img  src="<?php echo base_url('assets'); ?>/img/logo.jpeg" />   
                     </div>
-                    <div class="col-md-4 no-padding no-margin">
-                        <h2 class="text-black text-center" style=" font-weight: 500;">F&eacute;d&eacute;ration Internationale des Societ&eacute;s de la Croix-Rouge et du Croissant-Rouge </h2>
+                    <div class="col-md-6 no-padding no-margin">
+                        <p class="" style=" font-weight: 500;">F&eacute;d&eacute;ration Internationale des Societ&eacute;s de la Croix-Rouge et du Croissant-Rouge </p>
                     </div>
                 </div>
                 <div class="col-md-1"></div>
                 <div class="col-md-12">
-                    <div class="text-center loginscreen animated fadeInDown login-box" style="margin: 100px auto;">
+                    <div id="loader" class="col-md-12"></div>
+                    <div class="text-center loginscreen  login-box" style="margin: 100px auto;">
                         <div class="ibox-title bg-gray">
                             <h3 class="text-left">GRH / Se connecter </h3>
                         </div>
                         <div class="ibox-content box-login">
-                            <div id="loader" class="col-md-12"></div>
                             <?php echo form_open('', array('id' => 'Myform', 'class' => 'form-horizontal')); ?>
                                 <div class="box-body">
                                     <div class="form-group">

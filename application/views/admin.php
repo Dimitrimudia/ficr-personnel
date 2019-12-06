@@ -148,24 +148,28 @@
         <div class="col-lg-12">
             <div class="ibox">
                 <div class="ibox-content">
-                    <?php if($agents):?>
+                    <?php if(!empty($agents)):?>
                         <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
                             <thead>
                                 <tr>
                                     <th data-toggle="true">ID</th>
-                                    <th data-toggle="true">Nom</th>
+                                    <th data-toggle="true">Noms</th>
+                                    <th data-hide="phone,tablet" >Statut</th>
                                     <th data-hide="phone">Postnon</th>
                                     <th data-hide="all">Prenom</th>
                                     <th data-hide="phone">Fonction</th>
-                                    <th data-hide="phone,tablet" >Statut</th>
                                     <th class="text-right" data-sort-ignore="true">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach($agents as $agent):?>
                                     <tr>
-                                        <td></td>
-
+                                        <td><?php echo $agent->Id_0;?></td>
+                                        <td><?php echo $agent->Nom_7.' '.$agent->Postnom_8.' '.$agent->Prenom_9;?></td>
+                                        <td><?php echo $maritals[$agent->EtatCivil_12];?></td>
+                                        <td><?php echo $status[$agent->Statut_3];?></td>
+                                        <td><?php echo $agent->Fonction_14;?></td>
+                                        <td><?php echo $agent->Telephone_13;?></td>
                                     </tr>
                                 <?php endforeach;?>
                             </tbody>

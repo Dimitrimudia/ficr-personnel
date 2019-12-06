@@ -43,13 +43,13 @@ class Welcome extends MY_Controller {
                                     'Identifier_11'=>$user->Identifier_11,
                                 );
                                 $this->session->set_userdata($data);
-                                redirect('admin', 'refresh');
+                                $url = site_url('user');
+                                return redirect($url, 'refresh');
                         }
-                        
                }
                else
                {
-                    echo '<div class="alert alert-danger"> D&eacute;sol&eacute; !, vous n\'avez pas de compte, veuillez contatcer votre administrateur..<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button></div>';
+                        echo '<div class="alert alert-danger"> D&eacute;sol&eacute; !, vous n\'avez pas de compte, veuillez contatcer votre administrateur...<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button></div>';
                }
         }
 }

@@ -85,9 +85,11 @@
                         
                     </div>
                 </div>
-                <div class="box-footer page_header">
+                <div class="box-footer clearfix page_header">
                     <div class="col-md-12">
-                        <button type="submit" style="margin-left:0px;" name="submit" class="btn btn-primary pull-right"><i class="fa fa-edit"></i> &nbsp;Enregistrer&nbsp;</button>
+                        <div class="form-group">
+                           <button type="submit" style="margin-left:0px;" name="submit" class="btn btn-primary pull-right"><i class="fa fa-edit"></i> &nbsp;Enregistrer&nbsp;</button>
+                        </div>
                     </div>
                 </div>
             <?php echo form_close();?>

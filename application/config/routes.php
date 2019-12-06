@@ -57,5 +57,6 @@ $route['Addadmin'] = 'admin/save/agent';
 $route['hollyday'] = 'admin/display/hollyday';
 $route['contract'] = 'admin/display/contract';
 $route['login'] = 'admin';
+$route['user'] = 'admin';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;

@@ -23,10 +23,10 @@ class admin_model extends MY_Model{
          
         public function get_info_agent($oid = NULL)
         {
-                if($oid==NULL)
+                if($oid==NULL || $oid == 0)
                 {
                         $agent = new stdClass();
-                        $agent->Id_0 = '';
+                        $agent->Id_0 = 0;
                         $agent->Date_1 = gmdate('Y-m-d');
                         $agent->Statut_3 = '';
                         $agent->Updateat_4 = gmdate('Y-m-d H:i:s');
@@ -42,7 +42,7 @@ class admin_model extends MY_Model{
                         $agent->Telephone_13 = '';
                         $agent->Fonction_14 = '';
                         $agent->Adresse_15 = '';
-                        $agent->Mail_16 = '';
+                        $agent->Email_16 = '';
                         $agent->Lieu_17 = '';
                         return $agent;
 		}
@@ -112,7 +112,7 @@ class admin_model extends MY_Model{
         public function save_agent($data, $id)
         {
                 $this->set_table('personnel_agents', 'Id_0', 'Id_0 DESC');
-                ($id >0) || $this->db->where('Id_0', $id);
+                ($id > 0) || $this->db->where('Id_0', $id);
                 return $this->save($data, $id);
         }
 

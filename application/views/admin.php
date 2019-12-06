@@ -5,39 +5,41 @@
                 <div class="ibox-content">
                     <div>
                         <span class="pull-right text-right">
-                        <small>Average value of sales in the past month in: <strong>United states</strong></small>
-                            <br/>
-                            All sales: 162,862
+                          <?php echo  date('d-m-Y');?>
                         </span>
                         <h3 class="font-bold no-margins">
-                            Half-year revenue margin
+                            <span><?php echo count($agents);?></span> agents au total.
                         </h3>
-                        <small>Sales marketing.</small>
                     </div>
                     <div class="m-t-sm">
                         <div class="row">
-                            <div class="col-md-8">
-                                <div>
-                                <canvas id="lineChart" height="114"></canvas>
-                                </div>
-                            </div>
                             <div class="col-md-4">
                                 <ul class="stat-list m-t-lg">
                                     <li>
-                                        <h2 class="no-margins">2,346</h2>
-                                        <small>Total orders in period</small>
+                                        <h2 class="no-margins"><?php echo count($agents);?></h2>
+                                        <small>Agents actif</small>
                                         <div class="progress progress-mini">
-                                            <div class="progress-bar" style="width: 48%;"></div>
+                                            <div class="progress-bar" style="width: <?php echo count($agents);?>%;"></div>
                                         </div>
                                     </li>
                                     <li>
-                                        <h2 class="no-margins ">4,422</h2>
-                                        <small>Orders in last month</small>
+                                        <h2 class="no-margins "><?php echo count($agents);?></h2>
+                                        <small>Agents en cong&eacute;</small>
                                         <div class="progress progress-mini">
-                                            <div class="progress-bar" style="width: 60%;"></div>
+                                            <div class="progress-bar" style="width: <?php echo count($agents);?>%;"></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h2 class="no-margins "><?php echo count($agents);?></h2>
+                                        <small>Journaliers</small>
+                                        <div class="progress progress-mini">
+                                            <div class="progress-bar" style="width: <?php echo count($agents);?>%;"></div>
                                         </div>
                                     </li>
                                 </ul>
+                            </div>
+                            <div class="col-md-8">
+                                
                             </div>
                         </div>
                     </div>
@@ -113,69 +115,45 @@
             </div>
         </div>
     </div>
-    <div class="ibox-content m-b-sm border-bottom">
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label class="control-label" for="product_name">Product Name</label>
-                    <input type="text" id="product_name" name="product_name" value="" placeholder="Product Name" class="form-control">
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="form-group">
-                    <label class="control-label" for="price">Price</label>
-                    <input type="text" id="price" name="price" value="" placeholder="Price" class="form-control">
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="form-group">
-                    <label class="control-label" for="quantity">Quantity</label>
-                    <input type="text" id="quantity" name="quantity" value="" placeholder="Quantity" class="form-control">
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label class="control-label" for="status">Status</label>
-                    <select name="status" id="status" class="form-control">
-                        <option value="1" selected>Enabled</option>
-                        <option value="0">Disabled</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="ibox">
                 <div class="ibox-content">
                     <?php if(!empty($agents)):?>
-                        <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
+                        <table class="footable table table-stripped" data-page-size="8" data-filter=#filter>
+                             <input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="Tapez un text">
                             <thead>
                                 <tr>
-                                    <th data-toggle="true">ID</th>
-                                    <th data-toggle="true">Noms</th>
-                                    <th data-hide="phone,tablet" >Statut</th>
-                                    <th data-hide="phone">Postnon</th>
-                                    <th data-hide="all">Prenom</th>
-                                    <th data-hide="phone">Fonction</th>
-                                    <th class="text-right" data-sort-ignore="true">Action</th>
+                                    <th>ID</th>
+                                    <th>Noms</th>
+                                    <th>Etat-civil</th>
+                                    <th>Statut</th>
+                                    <th>Fonction</th>
+                                    <th data-hide="phone">T&eacute;l&eacute;phone</th>
+                                    <th >E-mail</th>
+                                    <th class="text-right" data-sort-ignore="true"><i class="fa fa-pencil-square-o"></i></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($agents as $agent):?>
-                                    <tr>
-                                        <td><?php echo $agent->Id_0;?></td>
+                                <?php $i = 1 ; foreach($agents as $agent):?>
+                                    <tr id="line<?php echo $agent->Id_0;?>">
+                                        <td><?php echo $i;?></td>
                                         <td><?php echo $agent->Nom_7.' '.$agent->Postnom_8.' '.$agent->Prenom_9;?></td>
                                         <td><?php echo $maritals[$agent->EtatCivil_12];?></td>
                                         <td><?php echo $status[$agent->Statut_3];?></td>
                                         <td><?php echo $agent->Fonction_14;?></td>
-                                        <td><?php echo $agent->Telephone_13;?></td>
+                                        <td>
+                                            <?php echo $agent->Telephone_13;?><br>
+                                        </td>
+                                        <td><?php echo $agent->Email_16;?></td>
+                                        <td align='center'><a style="cursor:pointer; text-decoration: none;color:#1ab394;" onclick="edit(<?php echo $agent->Id_0;?>)"><i class="fa fa-pencil"></i></a></td>
                                     </tr>
+                                    <?php  $i++;  ?>
                                 <?php endforeach;?>
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="6">
+                                    <td colspan="9">
                                         <ul class="pagination pull-right"></ul>
                                     </td>
                                 </tr>
@@ -197,9 +175,17 @@
     });
  function Add()
  {
-        var url = '<?php echo site_url('agent'); ?>';
-            $.get(url, function(data, status){
-                $("#pager").html(data);
-            });
+        var url = '<?php echo site_url('display/agent'); ?>/0';
+        $.get(url, function(data, status){
+            $("#pager").html(data);
+        });
+ }
+ 
+ function edit(id)
+ {
+        var url = '<?php echo site_url('display/agent/'); ?>' + id;
+        $.get(url, function(data, status){
+            $("#pager").html(data);
+        });
  }
 </script>

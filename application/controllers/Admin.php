@@ -80,13 +80,14 @@ class Admin extends MY_Controller {
                                $data['Date_1'] = date('Y-m-d H:i:s');
                                $data['Statut_3'] = 1;
                                $data['User_6'] = 0;
+                               $id = NULL;
                            endif;
                            $return = $this->admin_model->save_agent($data, $id);
                 }
                 
                 if($return)
                 {
-                        echo 400;
+                        echo '<div class="alert alert-success"> Bravo !, Agent enregistr&eacute; avec succ&egrave;s <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button></div>';
                 }
                 else
                 {

@@ -5,6 +5,7 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/css/plugins/footable/footable.core.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/plugins/toastr/toastr.min.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/js/plugins/gritter/jquery.gritter.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/plugins/footable/footable.core.css'); ?>" rel="stylesheet" type="text/css" />
@@ -33,14 +34,6 @@
                 <ul class="nav navbar-nav">
                     <li class="active">
                         <a id="add" aria-expanded="false" role="button"> <i class="fa fa-plus-circle f20"></i> Nouveau agent</a>
-                    </li>
-                    <li class="dropdown">
-                        <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-list f15"></i> Listes des agents <span class="caret"></span></a>
-                        <ul role="menu" class="dropdown-menu">
-                            <li><a href="">Nouveaux agents</a></li>
-                            <li><a href="">Agents actifs</a></li>
-                            <li><a href="">Agents en cong&eacute;</a></li>
-                        </ul>
                     </li>
                 </ul>
                 <ul class="nav navbar-top-links navbar-right">

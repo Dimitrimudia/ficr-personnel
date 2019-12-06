@@ -55,6 +55,9 @@
                 </div>
                 <div class="col-md-3"></div>
             </div>
+            <div class="col-md-12 padding-20 text-center"> 
+                &COPY; 2019 Dimsoft creative
+            </div>
         </div>
     </div>
 </div>

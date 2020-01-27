@@ -36,7 +36,7 @@ class Welcome extends MY_Controller {
                         {
                                 $data = array(
                                     'user_id' => $user->Id_0,
-                                    'Name_12'=>$user->Name_12.''.$user->Postnom_8.''.$user->Prenom_9,
+                                    'Name_12'=>$user->Name_12,
                                     'Group_5'=>$user->Group_5,
                                     'Role_6'=>$user->Role_6,
                                     'Position_7'=>$user->Position_7,

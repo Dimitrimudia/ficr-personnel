@@ -23,12 +23,12 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="col-md-12 control-label" style="text-align: center;">
-                                            <i class="fa fa-user f20"></i>
+                                            <i class="fa fa-user f15"></i>
                                         </label>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12 control-label" style="text-align: center;">
-                                            <i class="fa fa-key f20"></i>
+                                            <i class="fa fa-key f15"></i>
                                         </label>
                                     </div>
                                 </div>
@@ -77,18 +77,17 @@ $("#Myform").submit(function(event){
             dataType: 'html',
             encode: true,
             success: function (result){
-                
                 if(result == 401)
                 {
                         var chtml = '<div class="alert alert-danger"> D&eacute;sol&eacute; !, vous n\'avez pas de compte, veuillez contacter votre administrateur...<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button></div>';
-                        $('#loader').html('');
+                        $('#loader').html('<img  align="middle" height="30px" src="<?php echo base_url('assets/img/loadbar.gif')?>" />');
                         $('#loader').html(chtml);
                         $("#submit").text('connexion');
                         $("#submit").prop('disabled', '');
                 }
                 else if(result == 400)
                 {
-                    window.location.replace(admin);
+                        window.location.replace(admin);
                 }
                
             },

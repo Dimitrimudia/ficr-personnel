@@ -10,7 +10,11 @@
     <link href="<?php echo base_url('assets/js/plugins/gritter/jquery.gritter.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/plugins/dataTables/datatables.min.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/plugins/datapicker/datepicker3.css'); ?>" rel="stylesheet" type="text/css" />
-     <link href="<?php echo base_url('assets/css/animate.css'); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/css/animate.css'); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/css/plugins/jasny/jasny-bootstrap.min.css"'); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/css/plugins/clockpicker/clockpicker.css'); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/css/plugins/calendar/calendar.css'); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet" type="text/css" />
     <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script-->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -33,7 +37,7 @@
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a id="add" aria-expanded="false" role="button"> <i class="fa fa-plus-circle f20"></i> Nouveau agent</a>
+                        <a id="add" aria-expanded="false" role="button"> <i class="fa fa-plus-circle f10"></i> Nouveau agent</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-top-links navbar-right">
@@ -41,7 +45,7 @@
                         <i class="fa fa-user-circle-o"></i> <span> <?php echo $this->session->userdata('Name_12'); ' '?></span>
                     </li>
                     <li>
-                        <a onclick="deconnexion()?>">
+                        <a onclick="deconnexion()">
                             <i class="fa fa-sign-out"></i> Deconnexion
                         </a>
                     </li>

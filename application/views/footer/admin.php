@@ -7,6 +7,7 @@
 <script src="<?php echo base_url('assets/js/inspinia.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/js/plugins/metisMenu/jquery.metisMenu.js'); ?>" type="text/javascript"></script>
 
+
 <script type="text/javascript">
     
   
@@ -20,6 +21,13 @@
             $.get(url, function(data, status){
                 $("#pager").html(data);
             });
+    }
+    
+    function deconnexion()
+    {
+            
+            alert('Deconnexion...');
+            
     }
 </script>
 

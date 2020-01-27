@@ -631,7 +631,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   min-width: 120px;
 }
 .btn-primary.btn-outline {
-  color: #1ab394;
+   color: #1ab394;
 }
 .btn-success.btn-outline {
   color: #1c84c6;
@@ -694,9 +694,9 @@ fieldset[disabled] .btn-primary.active {
   border-color: #369;
 }
 .btn-success {
-  background-color: #1c84c6;
-  border-color: #1c84c6;
-  color: #FFFFFF;
+    background-color: #1c84c6;
+    border-color: #1c84c6;
+    color: #FFFFFF;
 }
 .btn-success:hover,
 .btn-success:focus,
@@ -7276,7 +7276,7 @@ body.landing-page {
   color: #fff;
 }
 .landing-page .btn-primary {
-  background-color: #1ab394;
+ background-color: #1ab394;
   border-color: #1ab394;
   color: #FFFFFF;
   font-size: 14px;
@@ -7312,8 +7312,8 @@ body.landing-page {
 .landing-page fieldset[disabled] .btn-primary:focus,
 .landing-page fieldset[disabled] .btn-primary:active,
 .landing-page fieldset[disabled] .btn-primary.active {
-  background-color: #1dc5a3;
-  border-color: #1dc5a3;
+    background-color: #1dc5a3;
+    border-color: #1dc5a3;
 }
 @media (min-width: 768px) {
   .landing-page {
@@ -8577,7 +8577,7 @@ body.md-skin {
 
 .f10
 {
-    font-size: 14px;
+    font-size: 20px;
 }
 
 .f20
@@ -8635,18 +8635,9 @@ body.md-skin {
 .text-gray
 {
     color:gray;
-    font-size: 30px;
-    font-weight: 20;
 }
 
-.text-gray:hover
-{
-   
-    font-size: 30px;
-    color: white;
-    font-weight: 20;
-    background-color: #a83238;
-}
+
 
 .page-header
 {
@@ -8663,4 +8654,27 @@ body.md-skin {
     color: #f5f6fa;
     background-color: #e84118;
     border-color: #e84118;
+}
+
+.text-green
+{
+    color :#1ab394;
+}
+
+.text-yellow
+{
+    color : #f8ac59;
+}
+.text-neutre
+{
+    color: gray;
+}
+
+.text-blue
+{
+    color:#369;
+}
+.strong
+{
+    font-weight: bold;
 }

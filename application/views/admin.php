@@ -5,7 +5,6 @@
                 <div class="ibox-content">
                     <div>
                         <span class="pull-right text-right">
-                          <?php echo  date('d-m-Y');?>
                         </span>
                     </div>
                     <div class="m-t-sm">

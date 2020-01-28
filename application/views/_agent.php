@@ -252,19 +252,38 @@
                                                                            <th>Fin</th>
                                                                            <th>Fonction</th>
                                                                            <th>Lieu</th>
-                                                                           <th>Jours restant</th>
+                                                                           <th>Dur&eacute;e</th>
+                                                                           <th>Statut</th>
                                                                            <th><i class="fa fa-folder"></i></th>
                                                                        </tr>
                                                                    </thead>
                                                                    <tbody>
                                                                        <?php $i = 1; foreach($contracts as $contract) :?>
                                                                         <tr>
+                                                                            <?php 
+                                                                                    $today = strtotime(Date("Y-m-d")); 
+                                                                                    $debut = strtotime($contract->Debut_7); 
+                                                                                    $fin = strtotime($contract->Fin_8); 
+                                                                                    $interval = ($fin - $today)/86400; 
+                                                                                    $jrestant = ($fin - $today)/86400; 
+                                                                            ?>
                                                                             <td><?php echo $i;?></td>
                                                                             <td><?php echo strftime('%d-%m-%Y',strtotime($contract->Debut_7));?></td>
                                                                             <td><?php echo  strftime('%d-%m-%Y',strtotime($contract->Fin_8)); ?></td>
                                                                             <td><?php echo $contract->Fonction_13;?></td>
                                                                             <td><?php echo $contract->Lieu_14;?></td>
-                                                                            <td><?php $today = strtotime(Date("Y-m-d")); $debut = strtotime($contract->Debut_7); $fin = strtotime($contract->Fin_8); $interval = ($fin - $today)/86400;  if($interval < 0) {echo 0; }else{echo $interval;}?></td>
+                                                                            <td>
+                                                                                <span class="badge"><?php echo $interval;?></span> jours
+                                                                            </td>
+                                                                            <td>
+                                                                                <?php if($jrestant > 0):?>
+                                                                                    Encore <span class="badge badge-success"><?php echo $jrestant;?></span> jours
+                                                                                <?php elseif($jrestant <= 0 && $contract->Statut_3 == 1):?>
+                                                                                   <span class="text-primary"> A cl&ocirc;turer</span>
+                                                                                <?php elseif($jrestant <= 0 && $contract->Statut_3 == 2):?>
+                                                                                    <span class="text-success"> Cl&ocirc;tur&eacute;</span>
+                                                                                <?php endif;?>
+                                                                            </td>
                                                                             <td>
                                                                                 <a style="cursor:pointer;" onclick="editContract('<?php echo $contract->Id_0; ?>')">
                                                                                     <i class="fa fa-folder-open-o"></i>
@@ -306,20 +325,37 @@
                                                                            <th>Type</th>
                                                                            <th>D&eacute;but</th>
                                                                            <th>Fin</th>
-                                                                           <th>Nombre des jours</th>
+                                                                           <th>Dur&eacute;e</th>
+                                                                           <th>Statut</th>
                                                                            <th><i class="fa fa-folder"></i></th>
                                                                        </tr>
                                                                    </thead>
                                                                    <tbody>
                                                                        <?php $j=1; foreach($holydays as $holyday) :?>
                                                                         <tr>
+                                                                            <?php 
+                                                                                $debut =  strtotime($holyday->Debut_6); 
+                                                                                $taday = strtotime(Date('Y-m-d')); 
+                                                                                $fin = strtotime($holyday->Fin_7); 
+                                                                                $interval = ($fin - $debut)/86400;
+                                                                                $jrestant = ($fin - $taday)/86400;
+                                                                            ?>
                                                                             <td><?php echo $j;?></td>
                                                                             <td><?php echo $holyday->Date_1;?></td>
                                                                             <td><?php echo $holyday->Statut_2;?></td>
                                                                             <td><?php echo $holyday->Type_8;?></td>
                                                                             <td><?php echo strftime('%d-%m-%Y',strtotime($holyday->Debut_6));?></td>
                                                                             <td><?php echo  strftime('%d-%m-%Y',strtotime($holyday->Fin_7)); ?></td>
-                                                                            <td><?php $today = strtotime($holyday->Debut_6); $debut =  strtotime($holyday->Debut_6); $fin = strtotime($holyday->Fin_7); $interval = ($fin - $today)/86400; echo $interval;?></td>
+                                                                            <td> <span class="badge"><?php echo $interval;?></span> jours</td>
+                                                                            <td>
+                                                                                <?php if($jrestant > 0):?>
+                                                                                    Encore <span class="badge badge-success"><?php echo $jrestant;?></span> jours
+                                                                                <?php elseif($jrestant <= 0 && $holyday->Statut_2 == 1):?>
+                                                                                    <stong><span class="text-primary"> A cl&ocirc;turer</span></stong>
+                                                                                <?php elseif($jrestant <= 0 && $holyday->Statut_2 == 2):?>
+                                                                                    <stong><span class="text-success"> Cl&ocirc;tur&eacute;</span></stong>
+                                                                                <?php endif;?>
+                                                                            </td>
                                                                             <td>
                                                                                 <a style="cursor:pointer;" onclick="editHolyday('<?php echo $holyday->Id_0; ?>')">
 

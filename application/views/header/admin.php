@@ -16,6 +16,7 @@
     <link href="<?php echo base_url('assets/css/plugins/calendar/calendar.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/css/normalize.css'); ?>" rel="stylesheet" type="text/css" />
     <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script-->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

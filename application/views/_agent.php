@@ -4,27 +4,16 @@
         <div class="col-md-10">
             <div id="loader"></div>
             <h2>
-                <?php if($agent->Id_0 != ""): ?>
-                    <?php if($agent->Statut_3 == 1):?>
-                        <i class="fa fa-user f20 text-success"></i> <span> Journalier</span>
-                    <?php elseif($agent->Statut_3 == 2):?>
-                        <i class="fa fa-user f20 text-green"></i> <span> Agent actif</span>
-                    <?php elseif($agent->Statut_3 == 3):?>
-                        <i class="fa fa-user f20 text-yellow"></i> <span> Agent en cong&eacute;</span>
-                    <?php elseif($agent->Statut_3 == 4):?>
-                        <i class="fa fa-user f20 text-gray"></i> <span> Agent inactif</span>
-                    <?php elseif($agent->Statut_3 == 5):?>
-                        <i class="fa fa-user f20 text-danger"></i> <span> Agent revoqu&eacute;</span>
-                    <?php endif;?>
-                <?php else: ?>
+                <?php if($agent->Id_0 == "" || $agent->Id_0 == 0): ?>
                     Ajouter un nouveau agent
                <?php endif; ?>
             </h2>
             <div class=" bg-white ibox-content page-header">
                 <?php echo form_open_multipart('', array('id'=>'mainform', 'class'=>'view')); ?>
                     <div class="box-body">
-                        <div class="col-md-12">
-                            <h4 class="page-header">Informations personnelles</h4>
+                        <?php if($agent->Id_0 == ""):?>
+                          <div class="ibox float-e-margins">
+                            <h5 class="page-header">Informations personnelles</h5>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="name">Nom</label>
@@ -98,9 +87,8 @@
                                 </div> 
                             </div>
                         </div>
-                        <?php if($agent->Id_0 == ""):?>
                         <div class="col-md-12">
-                            <h4 class="page-header">Documents</h4>
+                            <h5 class="page-header">Documents</h5>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="mail">Attestation de naissance</label>
@@ -205,26 +193,107 @@
                             </div>
                         </div>
                         <?php else:?>
-                        <div class="col-md-12">
-                            <h4 class="page-header">Documents</h4>
-                            <?php if(!empty($documents)):?>
-                                <table class="table bordered table-stripped table-hover no-border">
-                                    <tbody id="bodydocuments">
-                                        
-                                    </tbody>
-                                </table>
-                            <?php else: ?>
-                                <section id="cat_list">
-                                    <div class="row fontawesome-icon-list pTop50 f14 tCenter" style="text-align: center;">
-                                        <span class="text-gray">Aucun document!</span><br>
-                                    </div>
-                                </section>
-                            <?php endif;?>
-                        </div>
+                            <div class="ibox float-e-margins">
+                               <div class="panel panel-default">
+                                    <div class="panel-heading"> <h4 >Profile de l'agent</h4></div>
+                                    <div class="panel-body">
+                                        <div class="box box-info">
+
+                                                <div class="box-body">
+                                                    <div class="col-sm-6">
+                                                        <div  align="center"> <img alt="User Pic" src="<?php echo base_url('assets/img/nobody_m.original.jpg'); ?> " id="profile-image1" class="img-circle img-responsive"> 
+                                                            <input id="profile-image-upload" class="hidden" type="file">
+                                                            <div style="color:#999;" >click here to change profile image</div>
+                                                            <!--Upload Image Js And Css-->
+                                                        </div>
+                                                        <br>
+                                                        <!-- /input-group -->
+                                                    </div>
+                                                    <div class="left col-sm-6">
+                                                        <span><h3 class="text-info"><?php echo $agent->Nom_7.' '.$agent->Postnom_8.' '.$agent->Prenom_9;?> </h3></span>
+                                                        <span>
+                                                            <h4 class="">
+                                                                <?php if($agent->Statut_3 == 1):?>
+                                                                    <i class="fa fa-user  text-success"></i>  Journalier
+                                                                <?php elseif($agent->Statut_3 == 2):?>
+                                                                    <i class="fa fa-user  text-green"></i> Agent actif
+                                                                <?php elseif($agent->Statut_3 == 3):?>
+                                                                    <i class="fa fa-user  text-yellow"></i> Agent en cong&eacute;
+                                                                <?php elseif($agent->Statut_3 == 4):?>
+                                                                    <i class="fa fa-usertext-gray"></i> Agent inactif
+                                                                <?php elseif($agent->Statut_3 == 5):?>
+                                                                    <i class="fa fa-user text-danger"></i> Agent revoqu&eacute;
+                                                                <?php endif;?>
+                                                            </h4>
+                                                        </span>
+                                                        <span><p><i class="text-yellow fa fa-check-circle-o"></i> <?php echo $agent->Fonction_14;?></p></span>            
+                                                        <span><p><i class=" text-green fa fa-phone-square"></i> <abrr title="Phone"><a href="tel:<?php echo $agent->Telephone_13;?>"><?php echo $agent->Telephone_13;?></a></abrr></p></span>            
+                                                        <span><p><i class="fa fa-envelope"></i> <a href="mailto:#"><?php echo $agent->Email_16;?></a></p></span>            
+                                                        <span><p><i class="text-success fa fa-home"></i> <?php echo $agent->Adresse_15;?></p></span>            
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <hr style="margin:5px 0 5px 0;">
+                                                    <div class="col-sm-5 col-xs-6 tital " >Nom :</div>
+                                                    <div class="col-sm-7 col-xs-6 "><?php echo $agent->Nom_7;?></div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+
+                                                    <div class="col-sm-5 col-xs-6 tital " >Postnom :</div><div class="col-sm-7"> <?php echo $agent->Postnom_8;?></div>
+                                                      <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+
+                                                    <div class="col-sm-5 col-xs-6 tital " >Pr&eacute;nom :</div><div class="col-sm-7"> <?php echo $agent->Prenom_9;?></div>
+                                                      <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+
+                                                    <div class="col-sm-5 col-xs-6 tital " >Age :</div><div class="col-sm-7"><?php echo (Date('Y-m-d') - $agent->Naissance_11).' ans';?></div>
+
+                                                      <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+
+                                                    <div class="col-sm-5 col-xs-6 tital " >Date de naissance :</div><div class="col-sm-7"><?php echo $agent->Naissance_11;?></div>
+
+                                                      <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+
+                                                    <div class="col-sm-5 col-xs-6 tital " >Lieu de naissance :</div><div class="col-sm-7"><?php echo $agent->Lieu_17;?></div>
+
+                                                     <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+
+                                                    <div class="col-sm-5 col-xs-6 tital " >Genre :</div><div class="col-sm-7"><?php echo $genres[$agent->Genre_10];?></div>
+
+                                                     <div class="clearfix"></div>
+                                                    <div class="bot-border"></div>
+
+                                                    <div class="col-sm-5 col-xs-6 tital " >Etat-civile:</div><div class="col-sm-7"><?php echo $maritals[$agent->EtatCivil_12];?></div>
+                                            <!-- /.box-body -->
+                                          </div>
+                                          <!-- /.box -->
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="ibox float-e-margins">
+                                <h5 class="page-header">Documents</h5>
+                                <?php if(!empty($documents)):?>
+                                    <table class="table bordered table-stripped table-hover no-border">
+                                        <tbody id="bodydocuments">
+
+                                        </tbody>
+                                    </table>
+                                <?php else: ?>
+                                    <section id="cat_list">
+                                        <div class="row fontawesome-icon-list pTop50 f14 tCenter" style="text-align: center;">
+                                            <span class="text-gray">Aucun document!</span><br>
+                                        </div>
+                                    </section>
+                                <?php endif;?>
+                            </div>
                         <?php endif;?>
                         <?php if($agent->Statut_3 != 1):?>
-                            <div class="col-md-12">
-                                <h4 class="page-header">Autres informations</h4>                       
+                            <div class="ibox float-e-margins">
+                                <h5 class="page-header">Autres informations</h5>                       
                                 <div id="sup" class="col-md-12" style="display:none;">
                                     <div class="tabs-container">
                                         <ul class="nav nav-tabs">
@@ -492,4 +561,10 @@ function editHolyday(holyday)
             $("#pager").html(data);
         });
 }
+
+$(function() {
+    $('#profile-image1').on('click', function() {
+        $('#profile-image-upload').click();
+    });
+}); 
 </script>

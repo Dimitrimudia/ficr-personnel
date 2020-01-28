@@ -149,7 +149,7 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1 ; foreach($agents as $agent):?>
-                                        <tr id="line<?php echo $agent->Id_0;?>">
+                                        <tr class="gradeC" id="line<?php echo $agent->Id_0;?>">
                                             <td><?php echo $i;?></td>
                                             <td><?php echo $agent->Nom_7.' '.$agent->Postnom_8.' '.$agent->Prenom_9;?></td>
                                             <td><?php echo $maritals[$agent->EtatCivil_12];?></td>
@@ -291,4 +291,5 @@ var doughnutData = {
     var ctx4 = document.getElementById("pieChart").getContext("2d");
     new Chart(ctx4, {type: 'doughnut', data: doughnutData, options: doughnutOptions});
     
+      
 </script>

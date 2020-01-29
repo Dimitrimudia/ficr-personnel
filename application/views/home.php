@@ -1,67 +1,60 @@
 <?php $this->load->view('header/personnel');?>
-<div id="wrapper">
-    <div class="wrapper wrapper-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="col-md-1"></div>
-                <div class="col-md-10 box-logo" style="align-content: center">
-                    <img  src="<?php echo base_url('assets'); ?>/img/logo.jpeg"  />
-                    <h2 class="page-header" style=" font-weight: 500;">FICR Gestion du personnel </h2>
+ <div class="limiter">
+    <div class="container-login100">
+        <div class="col-md-12">
+
+            <div class="col-md-12 box-logo" style="align-content: center">
+                <img  src="<?php echo base_url('assets'); ?>/img/logo.jpeg"  />
+            </div>
+        </div>
+        <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+            <div id="loader"></div>
+            <?php echo form_open('', array('id' => 'Myform', 'class' => 'login100-form validate-form flex-sb flex-w')); ?>
+                <span class="login100-form-title p-b-32">
+                   FICR Gestion du personnel 
+                </span>
+                <span class="txt1 p-b-11">
+                    Identifiant
+                </span>
+                <div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
+                    <input class="input100" type="text" name="email" >
+                    <span class="focus-input100"></span>
                 </div>
-                <div class="col-md-1"></div>
-            </div>
-            <div class="col-md-12 padding-10">
-                
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <div id="loader"></div>
-                    <p class="text-left">GRH / Se connecter </p>
-                    <div class="ibox-content box-login">
-                        <?php echo form_open('', array('id' => 'Myform', 'class' => 'form-horizontal')); ?>
-                            <div class="box-body col-md-12 page-header">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="col-md-12 control-label" style="text-align: center;">
-                                            <i class="fa fa-user f15"></i>
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12 control-label" style="text-align: center;">
-                                            <i class="fa fa-key f15"></i>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                       
-                                        <?php echo form_input('email', '', 'class="form-control", placeholder="Identifiant" id="email" required="required" '); ?>
-                                    </div> 
-                                    <div class="form-group">
-                                       
-                                       <?php echo form_password('password','', 'class="form-control", placeholder="Mot de passe" id="password" required="required" '); ?>
-                                    </div> 
-                                </div>
-                            </div>
-                            <div class="">
-                                <div class="form-group">
-                                    <div class="col-md-12">
-                                        <button id="submit" class="btn btn-sm btn-primary pull-right" type="submit">Connexion</button>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php echo form_close(); ?> 
-                    </div>
+                <span class="txt1 p-b-11">
+                    Mot de passe
+                </span>
+                <div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
+                    <span class="btn-show-pass">
+                            <i class="fa fa-eye"></i>
+                    </span>
+                    <input class="input100" type="password" name="password" >
+                    <span class="focus-input100"></span>
                 </div>
-                <div class="col-md-3"></div>
-            </div>
-            <div class="col-md-12 padding-20 text-center"> 
-                &COPY; 2019 Dimsoft creative
-            </div>
+                <div class="flex-sb-m w-full p-b-48">
+                </div>
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn" type="submit">
+                            Login
+                    </button>
+                </div>
+
+            <?php echo form_close(); ?> 
+        </div>
+        <div class="col-md-12 padding-40 text-center"> 
+            &COPY; 2019 Soft-creative
         </div>
     </div>
 </div>
+<div id="dropDownSelect1">
+
+</div>
 <?php $this->load->view('footer/personnel'); ?>
+<script src="<?php echo base_url('assets/js/plugins//daterangepicker/daterangepicker.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/js/animsition.min.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/js/select2.min.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/js/moment.min.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/js/countdowntime.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/js/main.js'); ?>" type="text/javascript"></script>
 <script type="text/javascript">
 $("#Myform").submit(function(event){
     event.preventDefault();

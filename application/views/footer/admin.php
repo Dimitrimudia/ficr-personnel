@@ -6,11 +6,7 @@
 <script src="<?php echo base_url('assets/js/plugins/dataTables/datatables.min.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/js/inspinia.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/js/plugins/metisMenu/jquery.metisMenu.js'); ?>" type="text/javascript"></script>
-
-
 <script type="text/javascript">
-    
-  
     $(document).ready(function(){
         var url = '<?php echo site_url('admin')?>'; 
         view(url);

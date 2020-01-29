@@ -280,7 +280,7 @@ var doughnutData = {
         labels: [],
         datasets: [{
                     data: [journaliers,actifs,conges,inactifs,revoques],
-                    backgroundColor: ["#1c84c6","#1ab394","#f8ac59","gray","#ed5565"]
+                    backgroundColor: ["#1c84c6","#1ab394","#f8ac59","#d1dade","#ed5565"]
                 }]
     } ;
 

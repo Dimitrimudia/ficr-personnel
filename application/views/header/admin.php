@@ -2,6 +2,7 @@
     <meta charset="ISO-8859-1">
     <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
     <title> FICR | GRH</title>
+    <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo.jpeg'); ?>"/>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css" />
@@ -10,13 +11,18 @@
     <link href="<?php echo base_url('assets/js/plugins/gritter/jquery.gritter.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/plugins/dataTables/datatables.min.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/plugins/datapicker/datepicker3.css'); ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url('assets/css/animate.css'); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/css/plugins/daterangepicker/daterangepicker.css'); ?>" rel="stylesheet" type="text/css" />
+   
     <link href="<?php echo base_url('assets/css/plugins/jasny/jasny-bootstrap.min.css"'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/plugins/clockpicker/clockpicker.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/plugins/calendar/calendar.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url('assets/css/normalize.css'); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/css/animate.css'); ?>" rel="stylesheet" type="text/css" />
+   
+   
+    
+    
     <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script-->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

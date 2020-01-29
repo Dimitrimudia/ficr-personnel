@@ -8,6 +8,9 @@
                     Ajouter un nouveau agent
                <?php endif; ?>
             </h2>
+            <?php if($agent->Id_0 != "" || $agent->Id_0 != 0):?>
+                <a id="edit" class="btn btn-success btn-outline no-border pull-right" href="#">Modifier ce dossier <i class="fa fa-fw fa-paste"></i></a><br/>
+            <?php endif;?>
             <div class=" bg-white ibox-content page-header">
                 <?php echo form_open_multipart('', array('id'=>'mainform', 'class'=>'view')); ?>
                     <div class="box-body">
@@ -87,7 +90,7 @@
                                 </div> 
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="ibox float-e-margins">
                             <h5 class="page-header">Documents</h5>
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -195,21 +198,23 @@
                         <?php else:?>
                             <div class="ibox float-e-margins">
                                <div class="panel panel-default">
-                                    <div class="panel-heading"> <h4 >Profile de l'agent</h4></div>
+                                    <div class="panel-heading"> 
+                                        <h4 >Profile de l'agent</h4>
+                                    </div>
                                     <div class="panel-body">
                                         <div class="box box-info">
-
                                                 <div class="box-body">
-                                                    <div class="col-sm-6">
+                                                    <div class="col-sm-7">
                                                         <div  align="center"> <img alt="User Pic" src="<?php echo base_url('assets/img/nobody_m.original.jpg'); ?> " id="profile-image1" class="img-circle img-responsive"> 
                                                             <input id="profile-image-upload" class="hidden" type="file">
                                                             <div style="color:#999;" >click here to change profile image</div>
+                                                           
                                                             <!--Upload Image Js And Css-->
                                                         </div>
                                                         <br>
                                                         <!-- /input-group -->
                                                     </div>
-                                                    <div class="left col-sm-6">
+                                                    <div class="left col-sm-5">
                                                         <span><h3 class="text-info"><?php echo $agent->Nom_7.' '.$agent->Postnom_8.' '.$agent->Prenom_9;?> </h3></span>
                                                         <span>
                                                             <h4 class="">
@@ -220,7 +225,7 @@
                                                                 <?php elseif($agent->Statut_3 == 3):?>
                                                                     <i class="fa fa-user  text-yellow"></i> Agent en cong&eacute;
                                                                 <?php elseif($agent->Statut_3 == 4):?>
-                                                                    <i class="fa fa-usertext-gray"></i> Agent inactif
+                                                                    <i class="fa fa-user text-muted"></i> Agent inactif
                                                                 <?php elseif($agent->Statut_3 == 5):?>
                                                                     <i class="fa fa-user text-danger"></i> Agent revoqu&eacute;
                                                                 <?php endif;?>
@@ -233,40 +238,27 @@
                                                     </div>
                                                     <div class="clearfix"></div>
                                                     <hr style="margin:5px 0 5px 0;">
-                                                    <div class="col-sm-5 col-xs-6 tital " >Nom :</div>
-                                                    <div class="col-sm-7 col-xs-6 "><?php echo $agent->Nom_7;?></div>
-                                                    <div class="clearfix"></div>
-                                                    <div class="bot-border"></div>
-
-                                                    <div class="col-sm-5 col-xs-6 tital " >Postnom :</div><div class="col-sm-7"> <?php echo $agent->Postnom_8;?></div>
-                                                      <div class="clearfix"></div>
-                                                    <div class="bot-border"></div>
-
-                                                    <div class="col-sm-5 col-xs-6 tital " >Pr&eacute;nom :</div><div class="col-sm-7"> <?php echo $agent->Prenom_9;?></div>
-                                                      <div class="clearfix"></div>
-                                                    <div class="bot-border"></div>
-
-                                                    <div class="col-sm-5 col-xs-6 tital " >Age :</div><div class="col-sm-7"><?php echo (Date('Y-m-d') - $agent->Naissance_11).' ans';?></div>
+                                                    <div class="col-sm-7 col-xs-7 tital " >Age :</div><div class="col-sm-5"><?php echo (Date('Y-m-d') - $agent->Naissance_11).' ans';?></div>
 
                                                       <div class="clearfix"></div>
                                                     <div class="bot-border"></div>
 
-                                                    <div class="col-sm-5 col-xs-6 tital " >Date de naissance :</div><div class="col-sm-7"><?php echo $agent->Naissance_11;?></div>
+                                                    <div class="col-sm-7 col-xs-7 tital " >Date de naissance :</div><div class="col-sm-5"><?php echo $agent->Naissance_11;?></div>
 
                                                       <div class="clearfix"></div>
                                                     <div class="bot-border"></div>
 
-                                                    <div class="col-sm-5 col-xs-6 tital " >Lieu de naissance :</div><div class="col-sm-7"><?php echo $agent->Lieu_17;?></div>
+                                                    <div class="col-sm-7 col-xs-7 tital " >Lieu de naissance :</div><div class="col-sm-5"><?php echo $agent->Lieu_17;?></div>
 
                                                      <div class="clearfix"></div>
                                                     <div class="bot-border"></div>
 
-                                                    <div class="col-sm-5 col-xs-6 tital " >Genre :</div><div class="col-sm-7"><?php echo $genres[$agent->Genre_10];?></div>
+                                                    <div class="col-sm-7  col-xs-7 tital " >Genre :</div><div class="col-sm-5"><?php echo $genres[$agent->Genre_10];?></div>
 
                                                      <div class="clearfix"></div>
                                                     <div class="bot-border"></div>
 
-                                                    <div class="col-sm-5 col-xs-6 tital " >Etat-civile:</div><div class="col-sm-7"><?php echo $maritals[$agent->EtatCivil_12];?></div>
+                                                    <div class="col-sm-7 col-xs-7 tital " >Etat-civil :</div><div class="col-sm-5"><?php echo $maritals[$agent->EtatCivil_12];?></div>
                                             <!-- /.box-body -->
                                           </div>
                                           <!-- /.box -->
@@ -460,7 +452,7 @@
                     <div class="box-footer clearfix page_header">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <button type="submit" style="margin-left:0px;" name="submit" class="btn btn-w-m btn-primary pull-right"><i class="fa fa-edit"></i> &nbsp;Enregistrer&nbsp;</button>
+                                <button id="submit" type="submit" style="margin-left:0px;" name="submit" class="btn btn-w-m btn-primary pull-right"><i class="fa fa-edit"></i> &nbsp;Enregistrer&nbsp;</button>
                                  <?php if($agent->Statut_3 == 1):?>
                                     <button id="addContract" type="button" class="btn btn-success pull_left"><i class="fa fa-file-text"></i>&nbsp;&nbsp;Cr&eacute;er un contrat&nbsp;&nbsp;</button>
                                 <?php endif;?>
@@ -489,6 +481,7 @@ var agent = '<?php echo $agent->Id_0;?>';
 var id = '<?php echo 0;?>'
 <?php if(isset($agent->Id_0) && $agent->Id_0!=NULL && $agent->Id_0 != 0):?>
     $("#sup").css('display','block');
+    $("#sup").css('submit','none');
 <?php endif;?>
 $("#mainform").submit(function(e){
     e.preventDefault();
@@ -567,4 +560,9 @@ $(function() {
         $('#profile-image-upload').click();
     });
 }); 
+
+$("#edit").click(function(){
+    
+    alert('ok');
+});
 </script>

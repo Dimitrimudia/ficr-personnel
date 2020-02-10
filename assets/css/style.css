@@ -8604,7 +8604,6 @@ body.md-skin {
 .box-login
 {
     padding:  20px auto;
-    box-shadow: 0.1px 2px 2px 0.1px rgba(0,0,0,0.1);
 }
 
 
@@ -8612,7 +8611,6 @@ body.md-skin {
 {
     max-width: 150px;
     max-height:150px;
-    box-shadow: 2px 2px 2px 0.6px rgba(168, 50, 56, 0.4);
 }
 
 .message h2

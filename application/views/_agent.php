@@ -14,188 +14,189 @@
             <div class=" bg-white ibox-content page-header">
                 <?php echo form_open_multipart('', array('id'=>'mainform', 'class'=>'view')); ?>
                     <div class="box-body">
-                        <?php if($agent->Id_0 == ""):?>
-                          <div class="ibox float-e-margins">
-                            <h5 class="page-header">Informations personnelles</h5>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="name">Nom</label>
-                                    <?php echo form_input('name',$agent->Nom_7, 'class="form-control" maxlength="255" required = "required" '); ?>
-                                </div> 
+                        <div id="formNew" style="display:none">
+                            <div class="ibox float-e-margins">
+                                <h5 class="page-header">Informations personnelles</h5>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="name">Nom</label>
+                                        <?php echo form_input('name',$agent->Nom_7, 'class="form-control" maxlength="255" required = "required" '); ?>
+                                    </div> 
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="postnon">Postnom</label>
+                                        <?php echo form_input('postnon',$agent->Postnom_8, 'class="form-control" maxlength="255" required = "required" '); ?>
+                                    </div> 
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="prenom">Pr&eacute;nom</label>
+                                        <?php echo form_input('prenom',$agent->Prenom_9, 'class="form-control" maxlength="255" required = "required" '); ?>
+                                    </div> 
+                                </div>
+                                <div class="col-md-4">
+                                     <div class="form-group">
+                                       <label for="genre">Genre</label>
+                                        <?php echo form_dropdown('genre',$genres, $agent->Genre_10, 'class="form-control" id="supervisor" required = "required"'); ?>
+                                    </div> 
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="etatc">Etat-civil</label>
+                                        <?php echo form_dropdown('etatc',$maritals, $agent->EtatCivil_12, 'class="form-control"  required = "required"'); ?>
+                                    </div> 
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="nationality">Nationalit&eacute;</label>
+                                        <?php echo form_input('nationality',$agent->Nationality_12, 'class="form-control" maxlength="255" required = "required" '); ?>
+                                    </div> 
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="adress">Adresse</label>
+                                        <?php echo form_input('adress',$agent->Adresse_15, 'class="form-control" maxlength="255" required = "required" '); ?>
+                                    </div> 
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="lieu">Lieu de naissance</label>
+                                        <?php echo form_input('lieu',$agent->Lieu_17, 'class="form-control" maxlength="255"  required = "required" '); ?>
+                                    </div> 
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="naissance">Date de naissance</label>
+                                        <?php echo form_input('naissance',$agent->Naissance_11, 'class="form-control" maxlength="255" id="datepicker1" required = "required" '); ?>
+                                    </div> 
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="telephone">T&eacute;l&eacute;phone</label>
+                                        <?php echo form_input('telephone',$agent->Telephone_13, 'class="form-control" placeholder="Exemple : +243810477346" maxlength="255" required = "required" '); ?>
+                                    </div> 
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="mail">Email</label>
+                                        <?php echo form_input('mail',$agent->Email_16, 'class="form-control" placeholder="Exemple : jeanrenekalundi@gmail.com" maxlength="255" '); ?>
+                                    </div> 
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="fonction">Fonction</label>
+                                        <?php echo form_input('fonction',$agent->Fonction_14, 'class="form-control" maxlength="255" required = "required" '); ?>
+                                    </div> 
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="postnon">Postnom</label>
-                                    <?php echo form_input('postnon',$agent->Postnom_8, 'class="form-control" maxlength="255" required = "required" '); ?>
-                                </div> 
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="prenom">Pr&eacute;nom</label>
-                                    <?php echo form_input('prenom',$agent->Prenom_9, 'class="form-control" maxlength="255" required = "required" '); ?>
-                                </div> 
-                            </div>
-                            <div class="col-md-4">
-                                 <div class="form-group">
-                                   <label for="genre">Genre</label>
-                                    <?php echo form_dropdown('genre',$genres, $agent->Genre_10, 'class="form-control" id="supervisor" required = "required"'); ?>
-                                </div> 
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="etatc">Etat-civil</label>
-                                    <?php echo form_dropdown('etatc',$maritals, $agent->EtatCivil_12, 'class="form-control"  required = "required"'); ?>
-                                </div> 
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="nationality">Nationalit&eacute;</label>
-                                    <?php echo form_input('nationality',$agent->Nationality_12, 'class="form-control" maxlength="255" required = "required" '); ?>
-                                </div> 
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="adress">Adresse</label>
-                                    <?php echo form_input('adress',$agent->Adresse_15, 'class="form-control" maxlength="255" required = "required" '); ?>
-                                </div> 
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="lieu">Lieu de naissance</label>
-                                    <?php echo form_input('lieu',$agent->Lieu_17, 'class="form-control" maxlength="255"  required = "required" '); ?>
-                                </div> 
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="naissance">Date de naissance</label>
-                                    <?php echo form_input('naissance',$agent->Naissance_11, 'class="form-control" maxlength="255" id="datepicker1" required = "required" '); ?>
-                                </div> 
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="telephone">T&eacute;l&eacute;phone</label>
-                                    <?php echo form_input('telephone',$agent->Telephone_13, 'class="form-control" placeholder="Exemple : +243810477346" maxlength="255" required = "required" '); ?>
-                                </div> 
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="mail">Email</label>
-                                    <?php echo form_input('mail',$agent->Email_16, 'class="form-control" placeholder="Exemple : jeanrenekalundi@gmail.com" maxlength="255" required = "required" '); ?>
-                                </div> 
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="fonction">Fonction</label>
-                                    <?php echo form_input('fonction',$agent->Fonction_14, 'class="form-control" maxlength="255" required = "required" '); ?>
-                                </div> 
+                            <div class="ibox float-e-margins">
+                                <h5 class="page-header">Documents</h5>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="mail">Attestation de naissance</label>
+                                        <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                            <div class="form-control" data-trigger="fileinput">
+                                                <i class="glyphicon glyphicon-file fileinput-exists"></i>
+                                                <span class="fileinput-filename"></span>
+                                            </div>
+                                            <span class="input-group-addon btn btn-default btn-file">
+                                                <span class="fileinput-new">Joindre le fichier</span>
+                                                <span class="fileinput-exists">| Changer</span>
+                                                <input type= "file" name="attestation" />
+                                            </span>
+                                            <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Supprimer</a>
+                                        </div>   
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="mail">Aptitude physique</label>
+                                        <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                            <div class="form-control" data-trigger="fileinput">
+                                                <i class="glyphicon glyphicon-file fileinput-exists"></i>
+                                                <span class="fileinput-filename"></span>
+                                            </div>
+                                            <span class="input-group-addon btn btn-default btn-file">
+                                                <span class="fileinput-new">Joindre le fichier</span>
+                                                <span class="fileinput-exists">| Changer</span>
+                                                <input type= "file" name="aptitude"  />
+                                            </span>
+                                            <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Supprimer</a>
+                                        </div>   
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="mail">Certificat de mariage</label>
+                                        <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                            <div class="form-control" data-trigger="fileinput">
+                                                <i class="glyphicon glyphicon-file fileinput-exists"></i>
+                                                <span class="fileinput-filename"></span>
+                                            </div>
+                                            <span class="input-group-addon btn btn-default btn-file">
+                                                <span class="fileinput-new">Joindre le fichier</span>
+                                                <span class="fileinput-exists">| Changer</span>
+                                                <input type= "file" name="certificatM"  />
+                                            </span>
+                                            <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Supprimer</a>
+                                        </div>   
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="mail">Dipl&ocirc;me</label>
+                                        <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                            <div class="form-control" data-trigger="fileinput">
+                                                <i class="glyphicon glyphicon-file fileinput-exists"></i>
+                                                <span class="fileinput-filename"></span>
+                                            </div>
+                                            <span class="input-group-addon btn btn-default btn-file">
+                                                <span class="fileinput-new">Joindre le fichier</span>
+                                                <span class="fileinput-exists">| Changer</span>
+                                                <input type= "file" name="diplome" />
+                                            </span>
+                                            <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Supprimer</a>
+                                        </div>   
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="mail">Curulum vitae</label>
+                                        <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                            <div class="form-control" data-trigger="fileinput">
+                                                <i class="glyphicon glyphicon-file fileinput-exists"></i>
+                                                <span class="fileinput-filename"></span>
+                                            </div>
+                                            <span class="input-group-addon btn btn-default btn-file">
+                                                <span class="fileinput-new">Joindre le fichier</span>
+                                                <span class="fileinput-exists">| Changer</span>
+                                                <input type= "file" name="cv"  />
+                                            </span>
+                                            <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Supprimer</a>
+                                        </div>   
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="mail">Carte d'identit&eacute;</label>
+                                        <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                            <div class="form-control" data-trigger="fileinput">
+                                                <i class="glyphicon glyphicon-file fileinput-exists"></i>
+                                                <span class="fileinput-filename"></span>
+                                            </div>
+                                            <span class="input-group-addon btn btn-default btn-file">
+                                                <span class="fileinput-new">Joindre le fichier</span>
+                                                <span class="fileinput-exists">| Changer</span>
+                                                <input type= "file" name="carte"  />
+                                            </span>
+                                            <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Supprimer</a>
+                                        </div>   
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="ibox float-e-margins">
-                            <h5 class="page-header">Documents</h5>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="mail">Attestation de naissance</label>
-                                    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                                        <div class="form-control" data-trigger="fileinput">
-                                            <i class="glyphicon glyphicon-file fileinput-exists"></i>
-                                            <span class="fileinput-filename"></span>
-                                        </div>
-                                        <span class="input-group-addon btn btn-default btn-file">
-                                            <span class="fileinput-new">Joindre le fichier</span>
-                                            <span class="fileinput-exists">| Changer</span>
-                                            <input type= "file" name="attestation" />
-                                        </span>
-                                        <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Supprimer</a>
-                                    </div>   
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="mail">Aptitude physique</label>
-                                    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                                        <div class="form-control" data-trigger="fileinput">
-                                            <i class="glyphicon glyphicon-file fileinput-exists"></i>
-                                            <span class="fileinput-filename"></span>
-                                        </div>
-                                        <span class="input-group-addon btn btn-default btn-file">
-                                            <span class="fileinput-new">Joindre le fichier</span>
-                                            <span class="fileinput-exists">| Changer</span>
-                                            <input type= "file" name="aptitude"  />
-                                        </span>
-                                        <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Supprimer</a>
-                                    </div>   
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="mail">Certificat de mariage</label>
-                                    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                                        <div class="form-control" data-trigger="fileinput">
-                                            <i class="glyphicon glyphicon-file fileinput-exists"></i>
-                                            <span class="fileinput-filename"></span>
-                                        </div>
-                                        <span class="input-group-addon btn btn-default btn-file">
-                                            <span class="fileinput-new">Joindre le fichier</span>
-                                            <span class="fileinput-exists">| Changer</span>
-                                            <input type= "file" name="certificatM"  />
-                                        </span>
-                                        <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Supprimer</a>
-                                    </div>   
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="mail">Dipl&ocirc;me</label>
-                                    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                                        <div class="form-control" data-trigger="fileinput">
-                                            <i class="glyphicon glyphicon-file fileinput-exists"></i>
-                                            <span class="fileinput-filename"></span>
-                                        </div>
-                                        <span class="input-group-addon btn btn-default btn-file">
-                                            <span class="fileinput-new">Joindre le fichier</span>
-                                            <span class="fileinput-exists">| Changer</span>
-                                            <input type= "file" name="diplome" />
-                                        </span>
-                                        <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Supprimer</a>
-                                    </div>   
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="mail">Curulum vitae</label>
-                                    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                                        <div class="form-control" data-trigger="fileinput">
-                                            <i class="glyphicon glyphicon-file fileinput-exists"></i>
-                                            <span class="fileinput-filename"></span>
-                                        </div>
-                                        <span class="input-group-addon btn btn-default btn-file">
-                                            <span class="fileinput-new">Joindre le fichier</span>
-                                            <span class="fileinput-exists">| Changer</span>
-                                            <input type= "file" name="cv"  />
-                                        </span>
-                                        <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Supprimer</a>
-                                    </div>   
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="mail">Carte d'identit&eacute;</label>
-                                    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                                        <div class="form-control" data-trigger="fileinput">
-                                            <i class="glyphicon glyphicon-file fileinput-exists"></i>
-                                            <span class="fileinput-filename"></span>
-                                        </div>
-                                        <span class="input-group-addon btn btn-default btn-file">
-                                            <span class="fileinput-new">Joindre le fichier</span>
-                                            <span class="fileinput-exists">| Changer</span>
-                                            <input type= "file" name="carte"  />
-                                        </span>
-                                        <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Supprimer</a>
-                                    </div>   
-                                </div>
-                            </div>
-                        </div>
-                        <?php else:?>
+                        <div id="formEdit" style="display:none">
                             <div class="ibox float-e-margins">
                                <div class="panel panel-default">
                                     <div class="panel-heading"> 
@@ -219,15 +220,15 @@
                                                         <span>
                                                             <h4 class="">
                                                                 <?php if($agent->Statut_3 == 1):?>
-                                                                    <i class="fa fa-user  text-success"></i>  Journalier
+                                                                    <i class="fa fa-user  text-success"></i> <?php echo $status[$agent->Statut_3];?>
                                                                 <?php elseif($agent->Statut_3 == 2):?>
-                                                                    <i class="fa fa-user  text-green"></i> Agent actif
+                                                                    <i class="fa fa-user  text-green"></i> Agent <?php echo $status[$agent->Statut_3];?>
                                                                 <?php elseif($agent->Statut_3 == 3):?>
-                                                                    <i class="fa fa-user  text-yellow"></i> Agent en cong&eacute;
+                                                                    <i class="fa fa-user  text-yellow"></i> Agent <?php echo $status[$agent->Statut_3];?>
                                                                 <?php elseif($agent->Statut_3 == 4):?>
-                                                                    <i class="fa fa-user text-muted"></i> Agent inactif
+                                                                    <i class="fa fa-user text-muted"></i> Agent <?php echo $status[$agent->Statut_3];?>
                                                                 <?php elseif($agent->Statut_3 == 5):?>
-                                                                    <i class="fa fa-user text-danger"></i> Agent revoqu&eacute;
+                                                                    <i class="fa fa-user text-danger"></i> Agent <?php echo $status[$agent->Statut_3];?>
                                                                 <?php endif;?>
                                                             </h4>
                                                         </span>
@@ -255,7 +256,7 @@
 
                                                     <div class="col-sm-7  col-xs-7 tital " >Genre :</div><div class="col-sm-5"><?php echo $genres[$agent->Genre_10];?></div>
 
-                                                     <div class="clearfix"></div>
+                                                    <div class="clearfix"></div>
                                                     <div class="bot-border"></div>
 
                                                     <div class="col-sm-7 col-xs-7 tital " >Etat-civil :</div><div class="col-sm-5"><?php echo $maritals[$agent->EtatCivil_12];?></div>
@@ -268,10 +269,17 @@
                             </div>
                             <div class="ibox float-e-margins">
                                 <h5 class="page-header">Documents</h5>
+                                <?php $documents = json_decode($agent->Documents_18, true); ?>
                                 <?php if(!empty($documents)):?>
                                     <table class="table bordered table-stripped table-hover no-border">
                                         <tbody id="bodydocuments">
-
+                                            <?php  $i = 1; foreach($documents as $key => $value) :?>
+                                            <tr> 
+                                                <td>
+                                                    <a href="<?php echo base_url($value); ?>" target="_blank"> <?php echo $i.'. '.$key ?> <span> <i class="fa fw-fa fa-file-pdf-o"></i> </span></a>
+                                                </td>
+                                            </tr>
+                                            <?php $i++; endforeach;?>
                                         </tbody>
                                     </table>
                                 <?php else: ?>
@@ -282,179 +290,170 @@
                                     </section>
                                 <?php endif;?>
                             </div>
-                        <?php endif;?>
-                        <?php if($agent->Statut_3 != 1):?>
-                            <div class="ibox float-e-margins">
-                                <h5 class="page-header">Autres informations</h5>                       
-                                <div id="sup" class="col-md-12" style="display:none;">
-                                    <div class="tabs-container">
-                                        <ul class="nav nav-tabs">
-                                            <li class="active"><a data-toggle="tab" href="#tab-1"> Contrats</a></li>
-                                            <li class=""><a data-toggle="tab" href="#tab-2"> Cong&eacute;s</a></li>
-                                        </ul>
-                                        <div class="tab-content">
-                                            <div id="tab-1" class="tab-pane active">
-                                                <div class="panel-body">
-                                                    <div class="col-md-1 pull-right">
+                            <?php if($agent->Statut_3 != 1):?>
+                                <div class="ibox float-e-margins">
+                                    <h5 class="page-header">Autres informations</h5>                       
+                                    <div id="sup" class="col-md-12">
+                                        <div class="tabs-container">
+                                            <ul class="nav nav-tabs">
+                                                <li class="active"><a data-toggle="tab" href="#tab-1"> Contrats</a></li>
+                                                <li class=""><a data-toggle="tab" href="#tab-2"> Cong&eacute;s</a></li>
+                                            </ul>
+                                            <div class="tab-content">
+                                                <div id="tab-1" class="tab-pane active">
+                                                    <div class="panel-body">
+                                                        <div class="col-md-1 pull-right">
+                                                            <?php if(!empty($contracts)):?>
+                                                                <a id="addContract" href="#" class="pull_left fa fa-fw fa-plus-circle f20"></a> 
+                                                            <?php endif; ?>
+                                                            <br><br>
+                                                        </div>
+                                                        <div class="col-md-11"></div>
                                                         <?php if(!empty($contracts)):?>
-                                                            <a id="addContract" href="#" class="pull_left fa fa-fw fa-plus-circle f20"></a> 
-                                                        <?php endif; ?>
-                                                        <br><br>
+                                                            <div class="ibox">
+                                                                <div class="ibox-content">
+                                                                    <table class="table table-striped">
+                                                                       <thead>
+                                                                           <tr>
+                                                                               <th>#</th>
+                                                                               <th>D&eacute;but</th>
+                                                                               <th>Fin</th>
+                                                                               <th>Fonction</th>
+                                                                               <th>Lieu</th>
+                                                                               <th>Type</th>
+                                                                               <th>Statut</th>
+                                                                               <th><i class="fa fa-folder"></i></th>
+                                                                           </tr>
+                                                                       </thead>
+                                                                       <tbody>
+                                                                           <?php $i = 1; foreach($contracts as $contract) :?>
+                                                                            <tr>
+                                                                                <?php 
+                                                                                        $today = strtotime(Date("Y-m-d")); 
+                                                                                        $debut = strtotime($contract->Debut_7); 
+                                                                                        $fin = strtotime($contract->Fin_8); 
+                                                                                        $interval = ($fin - $today)/86400; 
+                                                                                        $jrestant = ($fin - $today)/86400; 
+                                                                                ?>
+                                                                                <td><?php echo $i;?></td>
+                                                                                <td><?php echo strftime('%d-%m-%Y',strtotime($contract->Debut_7));?></td>
+                                                                                <td><?php echo  strftime('%d-%m-%Y',strtotime($contract->Fin_8)); ?></td>
+                                                                                <td><?php echo $contract->Fonction_13;?></td>
+                                                                                <td><?php echo $contract->Lieu_14;?></td>
+                                                                                <td>
+                                                                                    <span class=""><?php echo $types[$contract->Type_6];?></span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span class="badge <?php echo $color[$contract->Statut_3]?>"><?php echo $states[$contract->Statut_3]?></span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <a style="cursor:pointer;" onclick="editContract('<?php echo $contract->Id_0; ?>')">
+                                                                                        <?php if($contract->Statut_3 == 1):?>
+                                                                                        <span class="text-primary"><i class="fa fa-folder-open-o"></i></span>
+                                                                                        <?php else: ?>
+                                                                                            <span class="text-success"><i class="fa fa-folder"></i></span>
+                                                                                        <?php endif; ?>
+                                                                                    </a>
+                                                                                </td>
+                                                                            </tr>
+                                                                           <?php $i++; endforeach;?>
+                                                                       </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        <?php else :?>
+                                                            <section id="cat_list">
+                                                                <div class="row fontawesome-icon-list pTop50 f14 tCenter" style="text-align: center;">
+                                                                    <span class="text-gray">Aucun contrat!</span><br>
+                                                                    <button id="addContract" type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;Cr&eacute;er&nbsp;&nbsp;</button>&nbsp;&nbsp;
+                                                                </div>
+                                                            </section>
+                                                        <?php endif;?>
                                                     </div>
-                                                    <div class="col-md-11"></div>
-                                                    <?php if(!empty($contracts)):?>
-                                                        <div class="ibox">
-                                                            <div class="ibox-content">
-                                                                <table class="table table-striped">
-                                                                   <thead>
-                                                                       <tr>
-                                                                           <th>#</th>
-                                                                           <th>D&eacute;but</th>
-                                                                           <th>Fin</th>
-                                                                           <th>Fonction</th>
-                                                                           <th>Lieu</th>
-                                                                           <th>Dur&eacute;e</th>
-                                                                           <th>Statut</th>
-                                                                           <th><i class="fa fa-folder"></i></th>
-                                                                       </tr>
-                                                                   </thead>
-                                                                   <tbody>
-                                                                       <?php $i = 1; foreach($contracts as $contract) :?>
-                                                                        <tr>
-                                                                            <?php 
-                                                                                    $today = strtotime(Date("Y-m-d")); 
-                                                                                    $debut = strtotime($contract->Debut_7); 
-                                                                                    $fin = strtotime($contract->Fin_8); 
-                                                                                    $interval = ($fin - $today)/86400; 
-                                                                                    $jrestant = ($fin - $today)/86400; 
-                                                                            ?>
-                                                                            <td><?php echo $i;?></td>
-                                                                            <td><?php echo strftime('%d-%m-%Y',strtotime($contract->Debut_7));?></td>
-                                                                            <td><?php echo  strftime('%d-%m-%Y',strtotime($contract->Fin_8)); ?></td>
-                                                                            <td><?php echo $contract->Fonction_13;?></td>
-                                                                            <td><?php echo $contract->Lieu_14;?></td>
-                                                                            <td>
-                                                                                <span class="badge"><?php echo $interval;?></span> jours
-                                                                            </td>
-                                                                            <td>
-                                                                                <?php if($jrestant > 0):?>
-                                                                                    Encore <span class="badge badge-success"><?php echo $jrestant;?></span> jours
-                                                                                <?php elseif($jrestant <= 0 && $contract->Statut_3 == 1):?>
-                                                                                   <span class="text-primary"> A cl&ocirc;turer</span>
-                                                                                <?php elseif($jrestant <= 0 && $contract->Statut_3 == 2):?>
-                                                                                    <span class="text-success"> Cl&ocirc;tur&eacute;</span>
-                                                                                <?php endif;?>
-                                                                            </td>
-                                                                            <td>
-                                                                                <a style="cursor:pointer;" onclick="editContract('<?php echo $contract->Id_0; ?>')">
-                                                                                    <i class="fa fa-folder-open-o"></i>
-                                                                                </a>
-                                                                            </td>
-                                                                        </tr>
-                                                                       <?php $i++; endforeach;?>
-                                                                   </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    <?php else :?>
-                                                        <section id="cat_list">
-                                                            <div class="row fontawesome-icon-list pTop50 f14 tCenter" style="text-align: center;">
-                                                                <span class="text-gray">Aucun contrat!</span><br>
-                                                                <button id="addContract" type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;Cr&eacute;er&nbsp;&nbsp;</button>&nbsp;&nbsp;
-                                                            </div>
-                                                        </section>
-                                                    <?php endif;?>
                                                 </div>
-                                            </div>
-                                            <div id="tab-2" class="tab-pane">
-                                                <div class="panel-body">
-                                                    <div class="col-md-1 pull-right">
-                                                        <?php if(!empty($holydays)):?>
-                                                            <a id="addHolyday" href="#" class="pull_left fa fa-fw fa-plus-circle f20"></a> 
-                                                        <?php endif; ?>
-                                                        <br><br>
-                                                    </div>
-                                                    <?php if(!empty($holydays)):?>
-                                                        <div class="ibox">
-                                                            <div class="ibox-content">
-                                                                <table class="table table-striped">
-                                                                   <thead>
-                                                                       <tr>
-                                                                           <th>#</th>
-                                                                           <th>Date</th>
-                                                                           <th>Etat</th>
-                                                                           <th>Type</th>
-                                                                           <th>D&eacute;but</th>
-                                                                           <th>Fin</th>
-                                                                           <th>Dur&eacute;e</th>
-                                                                           <th>Statut</th>
-                                                                           <th><i class="fa fa-folder"></i></th>
-                                                                       </tr>
-                                                                   </thead>
-                                                                   <tbody>
-                                                                       <?php $j=1; foreach($holydays as $holyday) :?>
-                                                                        <tr>
-                                                                            <?php 
-                                                                                $debut =  strtotime($holyday->Debut_6); 
-                                                                                $taday = strtotime(Date('Y-m-d')); 
-                                                                                $fin = strtotime($holyday->Fin_7); 
-                                                                                $interval = ($fin - $debut)/86400;
-                                                                                $jrestant = ($fin - $taday)/86400;
-                                                                            ?>
-                                                                            <td><?php echo $j;?></td>
-                                                                            <td><?php echo $holyday->Date_1;?></td>
-                                                                            <td><?php echo $holyday->Statut_2;?></td>
-                                                                            <td><?php echo $holyday->Type_8;?></td>
-                                                                            <td><?php echo strftime('%d-%m-%Y',strtotime($holyday->Debut_6));?></td>
-                                                                            <td><?php echo  strftime('%d-%m-%Y',strtotime($holyday->Fin_7)); ?></td>
-                                                                            <td> <span class="badge"><?php echo $interval;?></span> jours</td>
-                                                                            <td>
-                                                                                <?php if($jrestant > 0):?>
-                                                                                    Encore <span class="badge badge-success"><?php echo $jrestant;?></span> jours
-                                                                                <?php elseif($jrestant <= 0 && $holyday->Statut_2 == 1):?>
-                                                                                    <stong><span class="text-primary"> A cl&ocirc;turer</span></stong>
-                                                                                <?php elseif($jrestant <= 0 && $holyday->Statut_2 == 2):?>
-                                                                                    <stong><span class="text-success"> Cl&ocirc;tur&eacute;</span></stong>
-                                                                                <?php endif;?>
-                                                                            </td>
-                                                                            <td>
-                                                                                <a style="cursor:pointer;" onclick="editHolyday('<?php echo $holyday->Id_0; ?>')">
-
-                                                                                    <?php if($holyday->Statut_2 == 1):?>
-                                                                                        <i class="fa fa-folder-open-o"></i>
-                                                                                    <?php else: ?>
-                                                                                        <span class="text-gray"><i class="fa fa-folder"></i></span>
-                                                                                    <?php endif; ?>
-                                                                                </a>
-                                                                            </td>
-                                                                        </tr>
-                                                                       <?php $j++; endforeach;?>
-                                                                   </tbody>
-                                                                </table>
-                                                            </div>
+                                                <div id="tab-2" class="tab-pane">
+                                                    <div class="panel-body">
+                                                        <div class="col-md-1 pull-right">
+                                                            <?php if(!empty($holydays)):?>
+                                                                <a id="addHolyday" href="#" class="pull_left fa fa-fw fa-plus-circle f20"></a> 
+                                                            <?php endif; ?>
+                                                            <br><br>
                                                         </div>
-                                                    <?php else :?>
-                                                        <section id="cat_list">
-                                                            <div class="row fontawesome-icon-list pTop50 f14 tCenter" style="text-align: center;">
-                                                                <span class="text-gray">Aucun contrat!</span><br>
-                                                                <button id="addHolyday" type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;Cr&eacute;er&nbsp;&nbsp;</button>&nbsp;&nbsp;
+                                                        <?php if(!empty($holydays)):?>
+                                                            <div class="ibox">
+                                                                <div class="ibox-content">
+                                                                    <table class="table table-striped">
+                                                                       <thead>
+                                                                           <tr>
+                                                                               <th>#</th>
+                                                                               <th>Date</th>
+                                                                               <th>Type</th>
+                                                                               <th>D&eacute;but</th>
+                                                                               <th>Fin</th>
+                                                                               <th>Statut</th>
+                                                                               <th><i class="fa fa-folder"></i></th>
+                                                                           </tr>
+                                                                       </thead>
+                                                                       <tbody>
+                                                                           <?php $j=1; foreach($holydays as $holyday) :?>
+                                                                            <tr>
+                                                                                <?php 
+                                                                                    $debut =  strtotime($holyday->Debut_6); 
+                                                                                    $taday = strtotime(Date('Y-m-d')); 
+                                                                                    $fin = strtotime($holyday->Fin_7); 
+                                                                                    $interval = ($fin - $debut)/86400;
+                                                                                    $jrestant = ($fin - $taday)/86400;
+                                                                                ?>
+                                                                                <td><?php echo $j;?></td>
+                                                                                <td><?php echo $holyday->Date_1;?></td>
+                                                                                <td><?php echo $hstatus[$holyday->Type_8];?></td>
+                                                                                <td><?php echo strftime('%d-%m-%Y',strtotime($holyday->Debut_6));?></td>
+                                                                                <td><?php echo  strftime('%d-%m-%Y',strtotime($holyday->Fin_7)); ?></td>
+                                                                                <td>
+                                                                                    <span class="badge <?php echo $color[$holyday->Statut_2]?>"> <?php echo $hstates[$holyday->Statut_2]; ?> </span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <a style="cursor:pointer;" onclick="editHolyday('<?php echo $holyday->Id_0; ?>')">
+                                                                                        <?php if($holyday->Statut_2 == 1):?>
+                                                                                        <span class="text-primary"> <i class="fa fa-folder-open-o"></i></span>
+                                                                                        <?php else: ?>
+                                                                                            <span class="text-gray"><i class="fa fa-folder"></i></span>
+                                                                                        <?php endif; ?>
+                                                                                    </a>
+                                                                                </td>
+                                                                            </tr>
+                                                                           <?php $j++; endforeach;?>
+                                                                       </tbody>
+                                                                    </table>
+                                                                </div>
                                                             </div>
-                                                        </section>
-                                                    <?php endif;?>
+                                                        <?php else :?>
+                                                            <section id="cat_list">
+                                                                <div class="row fontawesome-icon-list pTop50 f14 tCenter" style="text-align: center;">
+                                                                    <span class="text-gray">Aucun contrat!</span><br>
+                                                                    <button id="addHolyday" type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;Cr&eacute;er&nbsp;&nbsp;</button>&nbsp;&nbsp;
+                                                                </div>
+                                                            </section>
+                                                        <?php endif;?>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        <?php endif;?>
+                            <?php endif;?>
+                        </div>
                     </div>
-                    <div class="box-footer clearfix page_header">
-                        <div class="col-md-12">
+                    <div class="box-footer clearfix border-top">
+                        <div class="col-md-6">
+                            <div id ="Send" class="form-group" style ="display: none;">
+                                <button id="send"  type="submit" style="margin-left:0px;" name="submit" class="btn btn-w-m btn-primary pull-left"><i class="fa fa-edit"></i> &nbsp;Enregistrer&nbsp;</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <button id="submit" type="submit" style="margin-left:0px;" name="submit" class="btn btn-w-m btn-primary pull-right"><i class="fa fa-edit"></i> &nbsp;Enregistrer&nbsp;</button>
-                                 <?php if($agent->Statut_3 == 1):?>
-                                    <button id="addContract" type="button" class="btn btn-success pull_left"><i class="fa fa-file-text"></i>&nbsp;&nbsp;Cr&eacute;er un contrat&nbsp;&nbsp;</button>
+                                <?php if(($agent->Id_0 != 0 || $agent->Id_0 != "") &&  $agent->Statut_3 == 1):?>
+                                    <button id="addContract" type="button" class="btn btn-success pull-right"><i class="fa fa-file-text"></i>&nbsp;&nbsp;Cr&eacute;er un contrat&nbsp;&nbsp;</button>
                                 <?php endif;?>
                             </div>
                         </div>
@@ -479,9 +478,11 @@ $("#datepicker1").datepicker({
 
 var agent = '<?php echo $agent->Id_0;?>';
 var id = '<?php echo 0;?>'
-<?php if(isset($agent->Id_0) && $agent->Id_0!=NULL && $agent->Id_0 != 0):?>
-    $("#sup").css('display','block');
-    $("#sup").css('submit','none');
+<?php if(isset($agent->Id_0) && $agent->Id_0!="" && $agent->Id_0 != 0):?>
+    $("#formEdit").css('display','block');
+<?php else: ?>
+    $("#formNew").css('display','block');
+    $("#Send").css('display','block');
 <?php endif;?>
 $("#mainform").submit(function(e){
     e.preventDefault();
@@ -502,6 +503,8 @@ $("#mainform").submit(function(e){
                 <?php if($agent->Id_0 == ''){ ?>
                     $("#mainform").trigger('reset');
                 <?php }?>
+                $("#send").prop("disabled", 'true');
+                scrollUP();     
             },
             error:function(error){
 
@@ -515,10 +518,7 @@ $("#cancel").click(function(){
 });
 function cancel()
 {
-       var url = '<?php echo site_url('admin'); ?>';
-       $.get(url, function(data, status){
-           $("#pager").html(data);
-       });
+        location.reload(true);
 } 
 
 $("#addContract").click(function(){
@@ -563,6 +563,18 @@ $(function() {
 
 $("#edit").click(function(){
     
-    alert('ok');
+    $("#formNew").css('display','block');
+    $("#formEdit").css('display','none');
+    $(this).removeClass('btn-success');
+    $(this).addClass('btn-default');
+    $(this).prop("disabled", 'true');
+    $("#Send").css('display','block');
 });
+
+
+function scrollUP(){
+    $('html, body').animate({
+        scrollTop: $("#loader").offset().top
+    }, 20);
+}
 </script>

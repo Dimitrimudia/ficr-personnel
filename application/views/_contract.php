@@ -19,17 +19,24 @@ endif;
             Nouveau contrat pour l'agent: <strong><?php echo $agent->Nom_7.' '.$agent->Postnom_8.' '.$agent->Prenom_9;?></strong>
         <?php endif;?>
     </h2>
-    <span>
-        <?php if($contract->Id_0 != 0 && $contract->Id_0 != ""):?>
-            <?php if($today == 0 && $contract->Statut_3 == 2): ?>
-                <span class="text-warning"> Contrat cl&ocirc;tur&eacute; </span>
-            <?php elseif($today > 0 && $contract->Statut_3 == 1): ?>
-                <span class="text-success"> Encore <?php echo $today; ?> pour ce contrat</span>
-            <?php elseif($today <= 0 && $contract->Statut_3 == 1): ?>
-                <span class="text-success"> Ce contrat doit &ecirc;tre cl&ocirc;rer!</span>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="label label-muted"> Nombre des jours du contrat : <?php echo $jours; ?></span><br>
+        </li>
+        <li class="list-group-item">
+            <?php if($contract->Id_0 != 0 && $contract->Id_0 != ""):?>
+            <?php if($joursr == 0 && $contract->Statut_3 == 2): ?>
+                <span class="label badge-warning"> Contrat cl&ocirc;tur&eacute; </span>
+            <?php elseif($jours > 0 && $contract->Statut_3 == 1): ?>
+                <span class="label badge-success"> Encore <?php echo $joursr; ?> pour ce contrat</span>
+            <?php elseif($jours <= 0 && $contract->Statut_3 == 1): ?>
+                <span class="label badge-success"> Ce contrat doit &ecirc;tre cl&ocirc;rer!</span>
+            <?php elseif($jours >= 0 && $contract->Statut_3 == 3): ?>
+                <span class="label badge-danger"> Ce contrat a &eacute;t&eacute; interrompu!</span>
             <?php endif; ?>
         <?php endif; ?>
-    </span>
+        </li>
+    </ul>
    <div class=" bg-white ibox-content page-header">
         <?php echo form_open_multipart('', array('id'=>'mainform', 'class'=>'view')); ?>
             <div class="box-body">
@@ -84,20 +91,36 @@ endif;
                     </div>   
                 </div>
                 <div class="col-md-12">
-                    <div class="form-group">
-                        <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                            <div class="form-control" data-trigger="fileinput">
-                                <i class="glyphicon glyphicon-file fileinput-exists"></i>
-                                <span class="fileinput-filename"></span>
-                            </div>
-                            <span class="input-group-addon btn btn-default btn-file">
-                                <span class="fileinput-new">Joindre le P.V</span>
-                                <span class="fileinput-exists">| Changer</span>
-                                <input type= "file" name="attachement" value="<?php if(isset($default->Attachement_12)){ echo $default->Attachement_12; } ?>" />
-                            </span>
-                            <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Supprimer</a>
-                        </div>   
-                    </div>
+                   
+                    <?php if($contract->Id_0 != 0 && $contract->Id_0 != ""):?>
+                        <?php $documents = json_decode($contract->Documents_15, true);?>
+                        <table class="table bordered table-stripped table-hover no-border">
+                            <tbody id="bodydocuments">
+                                <?php  $i = 1; foreach($documents as $key => $value) :?>
+                                <tr> 
+                                    <td>
+                                        <a href="<?php echo base_url($value); ?>" target="_blank"> <?php echo $i.'. '.$key ?> <span> <i class="fa fw-fa fa-file-pdf-o"></i> </span></a>
+                                    </td>
+                                </tr>
+                                <?php $i++; endforeach;?>
+                            </tbody>
+                        </table>
+                    <?php else:?>
+                        <div class="form-group">
+                            <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                <div class="form-control" data-trigger="fileinput">
+                                    <i class="glyphicon glyphicon-file fileinput-exists"></i>
+                                    <span class="fileinput-filename"></span>
+                                </div>
+                                <span class="input-group-addon btn btn-default btn-file">
+                                    <span class="fileinput-new">Joindre le P.V</span>
+                                    <span class="fileinput-exists">| Changer</span>
+                                    <input type= "file" name="attachement" />
+                                </span>
+                                <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Supprimer</a>
+                            </div>   
+                        </div>
+                    <?php endif;?>
                 </div>
                 <?php if(($contract->Id_0 != 0 || $contract->Id_0 != "") && $contract->Statut_3 == 1 && $today <= 0):?>
                     <div class="col-md-12">
@@ -167,10 +190,18 @@ $("#mainform").submit(function(e){
             contentType : false,
             success: function(result){
                 $('#loader').html('<img  align="middle" height="30px" src="<?php echo base_url('assets/img/loadbar.gif')?>" />');
-                $('#loader').html(result);
-                <?php if($agent->Id_0 == ''){ ?>
-                    $("#mainform").trigger('reset');
-                <?php }?>
+                if(result ==='401')
+                {
+                    
+                }
+                else
+                {
+                        $('#loader').html(result);
+                        <?php if($agent->Id_0 == ''){ ?>
+                            $("#mainform").trigger('reset');
+                        <?php }?>
+                }
+                scrollUP();
             },
             error:function(error){
 
@@ -189,5 +220,11 @@ function cancel()
        $.get(url, function(data, status){
            $("#pager").html(data);
        });
-}  
+}
+
+function scrollUP(){
+    $('html, body').animate({
+        scrollTop: $("#loader").offset().top
+    }, 20);
+}
 </script>

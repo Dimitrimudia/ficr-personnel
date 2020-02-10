@@ -10,7 +10,7 @@
                     <div class="m-t-sm">
                         <div class="row">
                             <div class="col-md-4">
-                                <ul class="list-group stat-list m-t-lg">
+                                <ul class="list-group">
                                     <li class="list-group-item">
                                         <span class="pull-right">
                                             <span class="no-margins f10 label label-success"><?php if(isset($stats[1])) echo $stats[1]; else echo 0; ?></span>
@@ -60,50 +60,9 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="ibox float-e-margins">
-                <div class="content">
-                    <div class="calendar-container">
-                        <div class="calendar"> 
-                            <div class="year-header"> 
-                                <span class="left-button" id="prev"> &lang; </span> 
-                                <span class="year" id="label"></span> 
-                                <span class="right-button" id="next"> &rang; </span>
-                            </div> 
-                            <table class="months-table"> 
-                                <tbody>
-                                    <tr class="months-row">
-                                        <td class="month">Jan</td> 
-                                        <td class="month">Feb</td> 
-                                        <td class="month">Mar</td> 
-                                        <td class="month">Apr</td> 
-                                        <td class="month">May</td> 
-                                        <td class="month">Jun</td> 
-                                        <td class="month">Jul</td>
-                                        <td class="month">Aug</td> 
-                                        <td class="month">Sep</td> 
-                                        <td class="month">Oct</td>          
-                                        <td class="month">Nov</td>
-                                        <td class="month">Dec</td>
-                                    </tr>
-                                </tbody>
-                            </table> 
-                            <table class="days-table"> 
-                                <td class="day">Sun</td> 
-                                <td class="day">Mon</td> 
-                                <td class="day">Tue</td> 
-                                <td class="day">Wed</td> 
-                                <td class="day">Thu</td> 
-                                <td class="day">Fri</td> 
-                                <td class="day">Sat</td>
-                            </table> 
-                            <div class="frame"> 
-                                <table class="dates-table"> 
-                                    <tbody class="tbody">             
-                                    </tbody> 
-                                </table>
-                            </div> 
-                        </div>
-                    </div>
+           <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <div id="calendar"></div>
                 </div>
             </div>
         </div>
@@ -143,7 +102,7 @@
                                         <th>Statut</th>
                                         <th>Fonction</th>
                                         <th data-hide="phone">T&eacute;l&eacute;phone</th>
-                                        <th >E-mail</th>
+                                        <th >Nationalit&eacute;</th>
                                         <th class="text-right" data-sort-ignore="true"><i class="fa fa-pencil-square-o"></i></th>
                                     </tr>
                                 </thead>
@@ -158,7 +117,7 @@
                                             <td>
                                                 <?php echo $agent->Telephone_13;?><br>
                                             </td>
-                                            <td><?php echo $agent->Email_16;?></td>
+                                            <td><?php echo $agent->Nationality_12;?></td>
                                             <td align='center'><a style="cursor:pointer; text-decoration: none;color:#1ab394;" onclick="edit(<?php echo $agent->Id_0;?>)"><i class="fa fa-pencil"></i></a></td>
                                         </tr>
                                         <?php  $i++;  ?>
@@ -179,9 +138,11 @@
         </div>
     </div>
 </div>
+<script src="<?php echo base_url('assets/js/plugins/fullcalendar/moment.min.js'); ?>" type="text/javascript"></script>
 <link href="<?php echo base_url('assets/css/plugins/morris/morris-0.4.3.min.css'); ?>" rel="stylesheet">
 <script src="<?php echo base_url('assets/js/plugins/chartjs/Chart.min.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/js/plugins/calendar/calendar.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/js/plugins/fullcalendar/fullcalendar.min.js'); ?>" type="text/javascript"></script>
 <script type="text/javascript">
     var journaliers = '<?php echo $stats[1];?>';
     var actifs = '<?php echo $stats[2];?>';
@@ -291,5 +252,30 @@ var doughnutData = {
     var ctx4 = document.getElementById("pieChart").getContext("2d");
     new Chart(ctx4, {type: 'doughnut', data: doughnutData, options: doughnutOptions});
     
-      
+   /* initialize the calendar
+         -----------------------------------------------------------------*/
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            editable: true,
+            droppable: true, // this allows things to be dropped onto the calendar
+            drop: function() {
+                // is the "remove after drop" checkbox checked?
+                if ($('#drop-remove').is(':checked')) {
+                    // if so, remove the element from the "Draggable Events" list
+                    $(this).remove();
+                }
+            },
+            events: [
+                
+            ]
+        });    
 </script>

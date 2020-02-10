@@ -8,6 +8,20 @@
             Cong&eacute; pour l'agent: <strong><?php echo $agent->Nom_7.' '.$agent->Postnom_8.' '.$agent->Prenom_9;?></strong>
         <?php endif;?>
     </h2>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="label label-muted"> Nombre des jours du cong&eacute; : <?php echo $jours; ?></span><br>
+        </li>
+        <li class="list-group-item">
+             <?php if($joursr > 0 && $hollyday->Statut_2 == '1'):?>
+                <span class="label badge-primary"> Cong&eacute; en cours</span>
+            <?php elseif($joursr < 0 && $hollyday->Statut_2 == '1'):?>
+                <span class="label badge-warning">Ce cong&eacute; doit &Ecirc;tre cl&ocirc;tur&eacute;</span>
+            <?php elseif($joursr > 0 && $hollyday->Statut_2 == '2'):?>
+                <span class="label badge-muted">Ce cong&eacute; doit &Ecirc;tre cl&ocirc;tur&eacute;</span>
+            <?php endif;?>
+        </li>
+    </ul>
    <div class=" bg-white ibox-content page-header">
         <?php echo form_open_multipart('', array('id'=>'mainform', 'class'=>'view')); ?>
             <div class="box-body">
@@ -62,20 +76,24 @@
                     </div>   
                 </div>
                 <div class="col-md-12">
-                    <div class="form-group">
-                        <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                            <div class="form-control" data-trigger="fileinput">
-                                <i class="glyphicon glyphicon-file fileinput-exists"></i>
-                                <span class="fileinput-filename"></span>
-                            </div>
-                            <span class="input-group-addon btn btn-default btn-file">
-                                <span class="fileinput-new">Fichier</span>
-                                <span class="fileinput-exists">| Changer</span>
-                                <input type= "file" name="attachement" value="<?php if(isset($default->Attachement_12)){ echo $default->Attachement_12; } ?>" />
-                            </span>
-                            <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Supprimer</a>
-                        </div>   
-                    </div>
+                    <?php if($hollyday->Id_0 != 0 && $hollyday->Id_0 != ""): ?>
+                        <?php $documents = json_decode($hollyday->Documents_12, true);?>
+                    <?php else :?>
+                        <div class="form-group">
+                            <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                <div class="form-control" data-trigger="fileinput">
+                                    <i class="glyphicon glyphicon-file fileinput-exists"></i>
+                                    <span class="fileinput-filename"></span>
+                                </div>
+                                <span class="input-group-addon btn btn-default btn-file">
+                                    <span class="fileinput-new">Fichier</span>
+                                    <span class="fileinput-exists">| Changer</span>
+                                    <input type= "file" name="attachement" value="<?php if(isset($default->Attachement_12)){ echo $default->Attachement_12; } ?>" />
+                                </span>
+                                <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Supprimer</a>
+                            </div>   
+                        </div>
+                    <?php endif; ?>
                 </div>
                 <?php if(($hollyday->Id_0 != 0 || $hollyday->Id_0 != "") && $hollyday->Statut_2 == 1) :?>
                     <div class="col-md-12">
@@ -166,6 +184,7 @@ $("#mainform").submit(function(e){
 $("#cancel").click(function(){
     cancel();
 });
+
 function cancel()
 {
         var url = '<?php echo site_url('display/agent/'); ?>' + id;

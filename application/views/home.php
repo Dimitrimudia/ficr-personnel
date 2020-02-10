@@ -4,14 +4,14 @@
         <div class="col-md-12">
 
             <div class="col-md-12 box-logo" style="align-content: center">
-                <img  src="<?php echo base_url('assets'); ?>/img/logo.jpeg"  />
+                <img  src="<?php echo base_url('assets'); ?>/img/illu.jpg"  />
             </div>
         </div>
         <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
             <div id="loader"></div>
             <?php echo form_open('', array('id' => 'Myform', 'class' => 'login100-form validate-form flex-sb flex-w')); ?>
                 <span class="login100-form-title p-b-32">
-                   FICR Gestion du personnel 
+                   Gestion du personnel 
                 </span>
                 <span class="txt1 p-b-11">
                     Identifiant

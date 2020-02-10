@@ -8,40 +8,65 @@ class admin_model extends MY_Model{
             ''=>''
         );
         
+        public $contrat_state = array(
+            '1'=>'En cours',
+            '2'=>'Cl&ocirc;tur&eacute;',
+            '3'=>'Interrompu',
+            ''=>''
+        );
+        
+        public $hollyday_state = array(
+            '1'=>'En cours',
+            '2'=>'Cl&ocirc;tur&eacute;',
+            ''=>''
+        );
+        
         public $maritals = array(
             '1'=>'C&eacute;libataire',
-            '2'=>'Mari&eacute; (e)',
-            '3'=>'Divorc&eacute; (e)',
+            '2'=>'Mari&eacute;(e)',
+            '3'=>'Divorc&eacute;(e)',
             ''=>''
         );
          
-       public $status= array(
+        public $status= array(
            '1'=>'Journalier',
            '2'=>'Actif',
            '3'=>'En cong&eacute;',
-           '4'=>'Inactif',
-           '5'=>'Revoqu&eacute;'
-       );
+           '4'=>'Sorti(e)',
+           '5'=>'Revoqu&eacute;(e)'
+        );
        
-       public $types = array(
+         public $types = array(
            '1'=>'CDI',
            '2'=>'CDD',
            ''=>''
-       );
+        );
        
-       public $ctypes = array(
+        public $ctypes = array(
            '1'=>'Cong&eacute; annuel',
            '2'=>'Cong&eacute; de circonstance',
            ''=>''
-       );
+        );
        
-       public $color_state = array(
+        public $color_state = array(
             '1'=>'badge-success',
             '2'=>'badge-primary',
             '3'=>'badge-warning',
             '4'=>'',
             '5'=>'badge-danger',
-       );
+        );
+       
+        public $color_contract = array(
+            '1'=>'badge-primary',
+            '2'=>'badge-success',
+            '3'=>'badge-danger'
+        );
+        
+        public $color_hollyday = array(
+            '1'=>'badge-primary',
+            '2'=>'badge-success',
+            '3'=>'badge-danger'
+        );
        
          
         public function get_info_agent($oid = NULL)
@@ -194,12 +219,12 @@ class admin_model extends MY_Model{
         {
                 if($id!=NULL)
                 {
-                    $this->db->select('personnel_holydays.*');
-                    $this->db->from('personnel_holydays');
-                    $this->db->where("personnel_holydays.Identifier_5 ='".$id."'");
-                    $this->db->distinct();
-                    $this->db->order_by('personnel_holydays.Id_0');
-                    return $this->get_all();
+                        $this->db->select('personnel_holydays.*');
+                        $this->db->from('personnel_holydays');
+                        $this->db->where("personnel_holydays.Identifier_5 ='".$id."'");
+                        $this->db->distinct();
+                        $this->db->order_by('personnel_holydays.Id_0');
+                        return $this->get_all();
                 }
         }
 

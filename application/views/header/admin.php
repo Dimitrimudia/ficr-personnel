@@ -1,8 +1,8 @@
 <head>
     <meta charset="ISO-8859-1">
     <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
-    <title> FICR | GRH</title>
-    <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo.jpeg'); ?>"/>
+    <title>GRH</title>
+    <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/illu.jpg'); ?>"/>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css" />
@@ -19,9 +19,8 @@
     <link href="<?php echo base_url('assets/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/css/animate.css'); ?>" rel="stylesheet" type="text/css" />
-   
-   
-    
+    <link href="<?php echo base_url('assets/css/plugins/fullcalendar/fullcalendar.css'); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/css/plugins/fullcalendar/fullcalendar.print.css'); ?>" rel="stylesheet" type="text/css" />
     
     <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script-->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -39,7 +38,7 @@
                 <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
                     <i class="fa fa-reorder"></i>
                 </button>
-                <a href="#" class="navbar-brand">FICR</a>
+                <a href="#" class="navbar-brand">GRH</a>
             </div>
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav">

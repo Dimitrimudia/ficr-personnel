@@ -1,0 +1,35 @@
+name: Deploy PHP App in Docker
+
+on:
+  push:
+    branches:
+      - main  # déploie quand tu pushes sur main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Build Docker image
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/php-app:latest .
+
+      - name: Push Docker image to Docker Hub
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/php-app:latest
+
+      - name: Deploy to remote server via SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            docker pull ${{ secrets.DOCKER_USERNAME }}/php-app:latest
+            docker stop php-app || true
+            docker rm php-app || true
+            docker run -d --name php-app -p 80:80 ${{ secrets.DOCKER_USERNAME }}/php-app:latest

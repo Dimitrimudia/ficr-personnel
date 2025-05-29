@@ -3,7 +3,7 @@ name: Deploy PHP App in Docker
 on:
   push:
     branches:
-      - main  # déploie quand tu pushes sur main
+      - main  # déploie quand tu pushes sur main si tout est ok
 
 jobs:
   build-and-deploy:
